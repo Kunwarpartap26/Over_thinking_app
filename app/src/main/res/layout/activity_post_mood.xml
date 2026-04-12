@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D0D"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Session khatam! 🎉"
+        android:textSize="22sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ab kaisa feel ho raha hai?"
+        android:textSize="16sp"
+        android:textColor="#9E9E9E"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/post_mood_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="😐"
+        android:textSize="72sp"/>
+
+    <TextView
+        android:id="@+id/post_mood_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Theek theek"
+        android:textSize="18sp"
+        android:textColor="#9E9E9E"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"/>
+
+    <SeekBar
+        android:id="@+id/post_mood_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progressTint="#5C6BC0"
+        android:thumbTint="#5C6BC0"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/mood_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#5C6BC0"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/done_btn"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Done ✓"
+        android:backgroundTint="#5C6BC0"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

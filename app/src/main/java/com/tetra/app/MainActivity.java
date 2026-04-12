@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -34,12 +37,8 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
 
     private TextView sessionLog;
     private EditText inputBox;
-    private Button micButton;
-    private Button sendButton;
-    private Button saveButton;
-    private Button sosButton;
+    private Button micButton, sendButton, saveButton, sosButton;
     private ScrollView scrollView;
-
     private SessionManager sessionManager;
     private TextToSpeech tts;
     private SpeechService speechService;
@@ -47,12 +46,11 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
     private boolean isListening = false;
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
-    // Anxiety trigger words
     private static final List<String> ANXIETY_WORDS = Arrays.asList(
-        "panic", "anxiety", "attack", "breathe", "help",
-        "ghabrana", "dar", "darna", "dara", "ghabrahat",
-        "ro raha", "rona", "rone", "bahut bura", "nahi raha",
-        "control nahi", "hosh nahi", "dil tez"
+        "panic","anxiety","attack","breathe","help",
+        "ghabrana","dar","darna","ghabrahat","ro raha",
+        "rona","bahut bura","nahi raha","control nahi",
+        "hosh nahi","dil tez","mar jana","khatam"
     );
 
     @Override
@@ -60,13 +58,16 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         sessionLog = findViewById(R.id.session_log);
         inputBox   = findViewById(R.id.input_box);
         micButton  = findViewById(R.id.mic_button);
         sendButton = findViewById(R.id.send_button);
         saveButton = findViewById(R.id.save_button);
         sosButton  = findViewById(R.id.sos_button);
-
         scrollView = findViewById(R.id.scroll_view);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
@@ -82,16 +83,18 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
 
         sessionManager = new SessionManager(this);
 
-        // Load Vosk model in background
         new Thread(() -> {
             try {
                 ModelUtils.copyModelIfNeeded(getApplicationContext());
-                voskModel = new Model(getApplicationContext().getFilesDir() + "/model");
+                voskModel = new Model(
+                    getApplicationContext().getFilesDir() + "/model");
                 mainHandler.post(() ->
-                    Toast.makeText(this, "Voice ready!", Toast.LENGTH_SHORT).show());
+                    Toast.makeText(this, "Voice ready! 🎤",
+                        Toast.LENGTH_SHORT).show());
             } catch (IOException e) {
                 mainHandler.post(() ->
-                    Toast.makeText(this, "Voice model failed", Toast.LENGTH_SHORT).show());
+                    Toast.makeText(this, "Voice model failed",
+                        Toast.LENGTH_SHORT).show());
             }
         }).start();
 
@@ -111,29 +114,38 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
             else stopListening();
         });
 
-        // SOS Anxiety Attack Button
         sosButton.setOnClickListener(v ->
             startActivity(new Intent(this, BreathingActivity.class)));
 
-        // Save PDF
-        saveButton.setOnClickListener(v -> {
-            // Save post-mood
-            SharedPreferences prefs = getSharedPreferences("tetra_prefs", MODE_PRIVATE);
-            prefs.edit().putInt("last_mood_after", MoodTrackerActivity.preMoodScore).apply();
+        saveButton.setOnClickListener(v -> endSession());
 
-            String path = sessionManager.saveAndEndSession();
-            if (path != null) {
-                sessionLog.setText("");
-                sharePDF(path);
-            } else {
-                Toast.makeText(this, "Koi messages nahi hain!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        appendToLog("🤖 TETRA: Namaste! Apne thoughts share karo.\n" +
+                   "Type karo ya mic use karo. SOS button anxiety ke liye hai. 💙");
+    }
 
-        // Welcome message
-        appendToLog("🤖 TETRA: Namaste! Main TETRA hoon, tumhara offline mentor.\n" +
-                   "Apne thoughts share karo - type karo ya mic use karo.\n" +
-                   "SOS button anxiety attack ke liye hai. 💙");
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, 1, 0, "⚙️ Settings");
+        menu.add(0, 2, 0, "📊 Weekly Report");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == 1)
+            startActivity(new Intent(this, SettingsActivity.class));
+        else if (item.getItemId() == 2)
+            startActivity(new Intent(this, WeeklyReportActivity.class));
+        return true;
+    }
+
+    private void endSession() {
+        String path = sessionManager.saveAndEndSession();
+        sessionLog.setText("");
+        // Go to post-mood screen
+        Intent intent = new Intent(this, PostMoodActivity.class);
+        intent.putExtra("pdf_path", path);
+        startActivity(intent);
     }
 
     private void sendTextInput() {
@@ -146,15 +158,12 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
     private void processInput(String text) {
         appendToLog("🧑 You: " + text);
 
-        // Check for anxiety words
         String lower = text.toLowerCase();
         for (String word : ANXIETY_WORDS) {
             if (lower.contains(word)) {
                 appendToLog("⚠️ TETRA: Lag raha hai tum stressed ho. " +
-                           "SOS button dabao breathing exercise ke liye.");
+                           "SOS button dabao breathing ke liye. 💙");
                 speakOut("Lag raha hai tum stressed ho. SOS button dabao.");
-                sosButton.setBackgroundTintList(
-                    getColorStateList(android.R.color.holo_red_dark));
                 break;
             }
         }
@@ -170,49 +179,62 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
 
     private void startListening() {
         if (voskModel == null) {
-            Toast.makeText(this, "Voice model load ho raha hai...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Voice load ho raha hai...",
+                Toast.LENGTH_SHORT).show();
             return;
         }
         try {
-            Recognizer recognizer = new Recognizer(voskModel, 16000.0f);
-            speechService = new SpeechService(recognizer, 16000.0f);
+            Recognizer rec = new Recognizer(voskModel, 16000.0f);
+            speechService = new SpeechService(rec, 16000.0f);
             speechService.startListening(this);
             isListening = true;
-            micButton.setText("🔴 Stop");
+            micButton.setText("🔴");
         } catch (IOException e) {
-            Toast.makeText(this, "Mic start nahi hua", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Mic start nahi hua",
+                Toast.LENGTH_SHORT).show();
         }
     }
 
     private void stopListening() {
-        if (speechService != null) { speechService.stop(); speechService = null; }
+        if (speechService != null) {
+            speechService.stop();
+            speechService = null;
+        }
         isListening = false;
-        micButton.setText("🎤 Bolo");
+        micButton.setText("🎤");
     }
 
     private void speakOut(String text) {
-        if (tts != null) tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tetra_tts");
+        if (tts != null)
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts");
     }
 
-    private void appendToLog(String message) {
-        String current = sessionLog.getText().toString();
-        sessionLog.setText(current + "\n" + message + "\n");
+    private void appendToLog(String msg) {
+        sessionLog.setText(sessionLog.getText() + "\n" + msg + "\n");
         scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
     }
 
     private void sharePDF(String path) {
-        File pdfFile = new File(path);
-        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".provider", pdfFile);
+        File f = new File(path);
+        Uri uri = FileProvider.getUriForFile(this,
+            getPackageName() + ".provider", f);
         Intent share = new Intent(Intent.ACTION_SEND);
         share.setType("application/pdf");
         share.putExtra(Intent.EXTRA_STREAM, uri);
         share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(Intent.createChooser(share, "TETRA Journal Share Karo"));
+        startActivity(Intent.createChooser(share, "Share TETRA Journal"));
     }
 
-    @Override public void onPartialResult(String h) { inputBox.setHint("Listening: " + h); }
-    @Override public void onResult(String h) { processInput(h); stopListening(); }
-    @Override public void onFinalResult(String h) { processInput(h); stopListening(); }
+    @Override public void onPartialResult(String h) {
+        inputBox.setHint("Listening: " + h);
+    }
+    @Override public void onResult(String h) {
+        processInput(h); stopListening();
+        inputBox.setHint("Type karo ya mic use karo...");
+    }
+    @Override public void onFinalResult(String h) {
+        processInput(h); stopListening();
+    }
     @Override public void onError(Exception e) { stopListening(); }
     @Override public void onTimeout() { stopListening(); }
 

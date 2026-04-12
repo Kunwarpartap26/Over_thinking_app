@@ -19,10 +19,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PINActivity" android:exported="false"/>
-        <activity android:name=".MoodTrackerActivity" android:exported="false"/>
-        <activity android:name=".MainActivity" android:exported="false"/>
-        <activity android:name=".BreathingActivity" android:exported="false"/>
+        <activity android:name=".LanguageSelectActivity" android:exported="false"/>
+        <activity android:name=".PINActivity"           android:exported="false"/>
+        <activity android:name=".MoodTrackerActivity"   android:exported="false"/>
+        <activity android:name=".MainActivity"          android:exported="false"/>
+        <activity android:name=".BreathingActivity"     android:exported="false"/>
+        <activity android:name=".PostMoodActivity"      android:exported="false"/>
+        <activity android:name=".SettingsActivity"      android:exported="false"/>
+        <activity android:name=".WeeklyReportActivity"  android:exported="false"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

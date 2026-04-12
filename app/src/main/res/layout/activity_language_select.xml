@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D0D"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TETRA"
+        android:textSize="48sp"
+        android:textColor="#5C6BC0"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Truthful Mentor — 100% Offline"
+        android:textSize="13sp"
+        android:textColor="#777777"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="48dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apni bhasha chuniye"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose your language"
+        android:textSize="14sp"
+        android:textColor="#777777"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- English -->
+    <Button
+        android:id="@+id/btn_english"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="🇬🇧  English Only"
+        android:backgroundTint="#1A237E"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Hindi -->
+    <Button
+        android:id="@+id/btn_hindi"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="🇮🇳  केवल हिंदी"
+        android:backgroundTint="#B71C1C"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Hinglish -->
+    <Button
+        android:id="@+id/btn_hinglish"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="🔀  Hinglish (Hindi + English)"
+        android:backgroundTint="#1B5E20"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Settings"
+            android:textSize="26sp"
+            android:textColor="#5C6BC0"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Language -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌐 Language / Bhasha"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/current_lang_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current: Hinglish"
+            android:textSize="13sp"
+            android:textColor="#5C6BC0"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/change_lang_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Bhasha Badlo / Change Language"
+            android:backgroundTint="#1A237E"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="32dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1E1E1E"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- SOS Contact -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📞 SOS Trusted Contact"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anxiety attack ke waqt yahi number call hoga"
+            android:textSize="12sp"
+            android:textColor="#777777"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/sos_contact_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="+91 XXXXX XXXXX"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#555555"
+            android:background="#1E1E1E"
+            android:padding="12dp"
+            android:inputType="phone"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/save_contact_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Save Contact"
+            android:backgroundTint="#B71C1C"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="32dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1E1E1E"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- PIN -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔒 PIN Settings"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/new_pin_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Naya 4-digit PIN"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#555555"
+            android:background="#1E1E1E"
+            android:padding="12dp"
+            android:inputType="numberPassword"
+            android:maxLength="4"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/change_pin_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="PIN Badlo"
+            android:backgroundTint="#5C6BC0"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/remove_pin_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="PIN Hatao"
+            android:backgroundTint="#37474F"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="← Wapas"
+            android:backgroundTint="#1E1E1E"
+            android:textColor="#FFFFFF"/>
+
+    </LinearLayout>
+</ScrollView>

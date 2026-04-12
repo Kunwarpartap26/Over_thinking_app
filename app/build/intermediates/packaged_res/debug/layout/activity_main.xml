@@ -5,48 +5,53 @@
     android:orientation="vertical"
     android:background="#0D0D0D">
 
-    <!-- Header -->
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center_vertical">
+        android:background="#0D0D0D"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TETRA"
-            android:textSize="26sp"
-            android:textColor="#5C6BC0"
-            android:textStyle="bold"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <Button
-            android:id="@+id/sos_button"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="🆘 SOS"
-            android:backgroundTint="#B71C1C"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_marginEnd="8dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TETRA"
+                android:textSize="24sp"
+                android:textColor="#5C6BC0"
+                android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="💾 PDF"
-            android:backgroundTint="#1B5E20"
-            android:textColor="#FFFFFF"/>
+            <Button
+                android:id="@+id/sos_button"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="🆘 SOS"
+                android:backgroundTint="#B71C1C"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginEnd="6dp"/>
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="💾 End"
+                android:backgroundTint="#1B5E20"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <View android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#1E1E1E"/>
 
-    <!-- Chat -->
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
@@ -68,7 +73,6 @@
         android:layout_height="1dp"
         android:background="#1E1E1E"/>
 
-    <!-- Input -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,8 +102,7 @@
             android:text="➤"
             android:backgroundTint="#5C6BC0"
             android:textColor="#FFFFFF"
-            android:layout_marginStart="6dp"
-            android:textSize="16sp"/>
+            android:layout_marginStart="6dp"/>
 
         <Button
             android:id="@+id/mic_button"
@@ -108,9 +111,7 @@
             android:text="🎤"
             android:backgroundTint="#37474F"
             android:textColor="#FFFFFF"
-            android:layout_marginStart="6dp"
-            android:textSize="16sp"/>
+            android:layout_marginStart="6dp"/>
 
     </LinearLayout>
-
 </LinearLayout>

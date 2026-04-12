@@ -1,6 +1,7 @@
 package com.tetra.app;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,5 +44,11 @@ public class SessionManager {
 
     public List<ChatMessage> getSessionMessages() {
         return sessionMessages;
+    }
+
+    public String getLanguage() {
+        SharedPreferences prefs = context.getSharedPreferences("tetra_prefs",
+            Context.MODE_PRIVATE);
+        return prefs.getString("app_language", "hinglish");
     }
 }

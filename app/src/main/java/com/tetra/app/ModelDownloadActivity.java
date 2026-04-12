@@ -1,9 +1,9 @@
 package com.tetra.app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -39,13 +39,12 @@ public class ModelDownloadActivity extends AppCompatActivity {
         // Check if model already exists
         File modelFile = getModelFile();
         if (modelFile.exists() && modelFile.length() > 100_000_000L) {
-            // Already downloaded, go straight to main
-            launchMain();
+            launchNext();
             return;
         }
 
         downloadBtn.setOnClickListener(v -> startDownload());
-        skipBtn.setOnClickListener(v -> finish());
+        skipBtn.setOnClickListener(v -> launchNext());
     }
 
     private File getModelFile() {
@@ -57,40 +56,40 @@ public class ModelDownloadActivity extends AppCompatActivity {
     private void startDownload() {
         downloadBtn.setEnabled(false);
         skipBtn.setEnabled(false);
-        statusText.setText("Downloading TETRA brain... please wait on WiFi");
+        statusText.setText("Downloading TETRA brain... WiFi use karo");
         new DownloadTask().execute(MODEL_URL);
     }
 
-    private void launchMain() {
-        startActivity(new Intent(this, PINActivity.class));
+    private void launchNext() {
+        SharedPreferences prefs = getSharedPreferences("tetra_prefs", MODE_PRIVATE);
+        boolean langSelected = prefs.getBoolean("language_selected", false);
+        if (!langSelected) {
+            startActivity(new Intent(this, LanguageSelectActivity.class));
+        } else {
+            startActivity(new Intent(this, PINActivity.class));
+        }
         finish();
     }
 
     private class DownloadTask extends AsyncTask<String, Integer, Boolean> {
-
         @Override
         protected Boolean doInBackground(String... urls) {
             try {
                 URL url = new URL(urls[0]);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.connect();
-
                 int fileLength = conn.getContentLength();
                 File outFile = getModelFile();
-
                 try (InputStream input = conn.getInputStream();
                      FileOutputStream output = new FileOutputStream(outFile)) {
-
                     byte[] buffer = new byte[4096];
                     long downloaded = 0;
                     int count;
-
                     while ((count = input.read(buffer)) != -1) {
                         downloaded += count;
                         output.write(buffer, 0, count);
-                        if (fileLength > 0) {
-                            publishProgress((int) (downloaded * 100 / fileLength));
-                        }
+                        if (fileLength > 0)
+                            publishProgress((int)(downloaded * 100 / fileLength));
                     }
                 }
                 return true;
@@ -108,11 +107,10 @@ public class ModelDownloadActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Boolean success) {
             if (success) {
-                statusText.setText("TETRA is ready!");
-                percentText.setText("100%");
-                launchMain();
+                statusText.setText("TETRA ready!");
+                launchNext();
             } else {
-                statusText.setText("Download failed. Check internet and retry.");
+                statusText.setText("Download failed. Internet check karo.");
                 downloadBtn.setEnabled(true);
                 skipBtn.setEnabled(true);
             }

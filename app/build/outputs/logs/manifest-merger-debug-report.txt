@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:27:9-35:20
+INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:31:9-39:20
 	android:grantUriPermissions
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:31:13-47
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:35:13-47
 	android:authorities
 		INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:29:13-60
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:33:13-60
 	android:exported
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:30:13-37
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:34:13-37
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:28:13-62
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:32:13-62
 manifest
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:2:1-38:12
-INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:2:1-38:12
-INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:2:1-38:12
-INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:2:1-38:12
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:2:1-42:12
 MERGED from [com.google.android.material:material:1.11.0] /home/codespace/.gradle/caches/8.13/transforms/e232a6ce9c3c2059fb231c71feabe776/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/codespace/.gradle/caches/8.13/transforms/10e8ad48ece38abc7c304101f9469ce9/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/codespace/.gradle/caches/8.13/transforms/d5bb628fbb40a49871445a521592721b/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
@@ -93,8 +93,8 @@ ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:7:5-8:
 	android:name
 		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:7:22-78
 application
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:5-37:19
-INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:5-37:19
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:5-41:19
+INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:5-41:19
 MERGED from [com.google.android.material:material:1.11.0] /home/codespace/.gradle/caches/8.13/transforms/e232a6ce9c3c2059fb231c71feabe776/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /home/codespace/.gradle/caches/8.13/transforms/e232a6ce9c3c2059fb231c71feabe776/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/codespace/.gradle/caches/8.13/transforms/d5bb628fbb40a49871445a521592721b/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
@@ -141,36 +141,60 @@ category#android.intent.category.LAUNCHER
 ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:17-76
 	android:name
 		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:27-74
+activity#com.tetra.app.LanguageSelectActivity
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:9-84
+	android:exported
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:58-82
+	android:name
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:19-57
 activity#com.tetra.app.PINActivity
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:9-73
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:9-83
 	android:exported
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:47-71
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:57-81
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:19-46
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:19-46
 activity#com.tetra.app.MoodTrackerActivity
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:9-81
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:9-83
 	android:exported
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:55-79
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:57-81
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:19-54
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:19-54
 activity#com.tetra.app.MainActivity
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:9-74
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:9-83
 	android:exported
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:48-72
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:57-81
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:19-47
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:19-47
 activity#com.tetra.app.BreathingActivity
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:9-79
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:26:9-83
 	android:exported
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:53-77
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:26:57-81
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:19-52
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:26:19-52
+activity#com.tetra.app.PostMoodActivity
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:27:9-83
+	android:exported
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:27:57-81
+	android:name
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:27:19-51
+activity#com.tetra.app.SettingsActivity
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:28:9-83
+	android:exported
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:28:57-81
+	android:name
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:28:19-51
+activity#com.tetra.app.WeeklyReportActivity
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:29:9-83
+	android:exported
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:29:57-81
+	android:name
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:29:19-55
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:32:13-34:53
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:36:13-38:53
 	android:resource
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:34:17-51
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:38:17-51
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:33:17-67
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:37:17-67
 uses-sdk
 INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml

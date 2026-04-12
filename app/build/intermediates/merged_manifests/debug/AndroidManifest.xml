@@ -40,6 +40,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.tetra.app.LanguageSelectActivity"
+            android:exported="false" />
+        <activity
             android:name="com.tetra.app.PINActivity"
             android:exported="false" />
         <activity
@@ -50,6 +53,15 @@
             android:exported="false" />
         <activity
             android:name="com.tetra.app.BreathingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.tetra.app.PostMoodActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.tetra.app.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.tetra.app.WeeklyReportActivity"
             android:exported="false" />
 
         <provider

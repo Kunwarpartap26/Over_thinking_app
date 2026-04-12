@@ -3061,6 +3061,8 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id back_btn
+id back_btn2
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3081,6 +3083,9 @@ id btn7
 id btn8
 id btn9
 id btn_clear
+id btn_english
+id btn_hindi
+id btn_hinglish
 id buttonPanel
 id cancel_button
 id center
@@ -3090,6 +3095,8 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
+id change_lang_btn
+id change_pin_btn
 id checkbox
 id checked
 id chronometer
@@ -3110,6 +3117,7 @@ id coordinator
 id cos
 id counterclockwise
 id cradle
+id current_lang_text
 id custom
 id customPanel
 id cut
@@ -3132,6 +3140,7 @@ id disableHome
 id disablePostScroll
 id disableScroll
 id disjoint
+id done_btn
 id download_btn
 id dragDown
 id dragEnd
@@ -3171,6 +3180,7 @@ id floating
 id forever
 id fragment_container_view_tag
 id fullscreen_header
+id generate_report_btn
 id ghost_view
 id ghost_view_holder
 id gone
@@ -3246,6 +3256,7 @@ id month_navigation_previous
 id month_title
 id mood_emoji
 id mood_label
+id mood_result
 id mood_slider
 id motion_base
 id mtrl_anchor_parent
@@ -3280,6 +3291,7 @@ id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_header_container
 id never
+id new_pin_input
 id noScroll
 id none
 id normal
@@ -3321,6 +3333,9 @@ id pin_display
 id pin_title
 id position
 id postLayout
+id post_mood_emoji
+id post_mood_label
+id post_mood_slider
 id pressed
 id progress_bar
 id progress_circular
@@ -3328,6 +3343,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id remove_pin_btn
 id report_drawn
 id reverseSawtooth
 id right
@@ -3337,6 +3353,7 @@ id right_side
 id rounded
 id row_index_key
 id save_button
+id save_contact_btn
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3377,6 +3394,7 @@ id snap
 id snapMargins
 id sos_button
 id sos_call_button
+id sos_contact_input
 id spacer
 id special_effects_controller_view_tag
 id spline
@@ -3394,6 +3412,7 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id stats_text
 id status_text
 id stop
 id stretch
@@ -3434,6 +3453,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -3578,9 +3598,13 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_breathing
 layout activity_download
+layout activity_language_select
 layout activity_main
 layout activity_mood
 layout activity_pin
+layout activity_post_mood
+layout activity_settings
+layout activity_weekly_report
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
