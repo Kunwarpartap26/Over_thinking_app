@@ -1,0 +1,12 @@
+# Build files
+build/
+app/build/
+models/build/
+.gradle/
+
+# Local config
+local.properties
+
+# IDE
+.idea/
+*.iml
