@@ -82,15 +82,19 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /home
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
 	android:name
 		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:5:22-64
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:6:5-7:37
-	android:maxSdkVersion
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:7:9-35
+uses-permission#android.permission.CALL_PHONE
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:6:5-68
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:6:22-78
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:6:22-66
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:7:5-8:37
+	android:maxSdkVersion
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:8:9-35
+	android:name
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:7:22-78
 application
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:9:5-37:19
-INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:9:5-37:19
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:5-37:19
+INJECTED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:5-37:19
 MERGED from [com.google.android.material:material:1.11.0] /home/codespace/.gradle/caches/8.13/transforms/e232a6ce9c3c2059fb231c71feabe776/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /home/codespace/.gradle/caches/8.13/transforms/e232a6ce9c3c2059fb231c71feabe776/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/codespace/.gradle/caches/8.13/transforms/d5bb628fbb40a49871445a521592721b/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
@@ -116,33 +120,51 @@ MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /home/cod
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
 	android:label
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:11:9-30
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:12:9-30
 	android:allowBackup
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:12:9-59
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:13:9-59
 activity#com.tetra.app.ModelDownloadActivity
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:14:9-21:20
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:15:9-20:20
 	android:exported
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:16:13-36
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:15:57-80
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:15:13-50
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:15:19-56
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:17:13-20:29
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:16:13-19:29
 action#android.intent.action.MAIN
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:17-68
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:17:17-68
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:25-66
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:19:17-76
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:17-76
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:19:27-74
-activity#com.tetra.app.MainActivity
-ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:9-25:39
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:27-74
+activity#com.tetra.app.PINActivity
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:9-73
 	android:exported
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:13-37
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:47-71
 	android:name
-		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:13-41
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:19-46
+activity#com.tetra.app.MoodTrackerActivity
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:9-81
+	android:exported
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:55-79
+	android:name
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:19-54
+activity#com.tetra.app.MainActivity
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:9-74
+	android:exported
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:48-72
+	android:name
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:19-47
+activity#com.tetra.app.BreathingActivity
+ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:9-79
+	android:exported
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:53-77
+	android:name
+		ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:19-52
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from /workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:32:13-34:53
 	android:resource

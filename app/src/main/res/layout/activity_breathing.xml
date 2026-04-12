@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#050510"
+    android:gravity="center"
+    android:padding="32dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🆘 TETRA SOS"
+        android:textSize="22sp"
+        android:textColor="#EF5350"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/cycle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cycle 1 / 4"
+        android:textSize="13sp"
+        android:textColor="#777777"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Breathing circle -->
+    <View
+        android:id="@+id/breath_circle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/circle_breathing"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:id="@+id/breath_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saans lo..."
+        android:textSize="28sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/instruction_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Naak se dheere dheere saans andar lo"
+        android:textSize="14sp"
+        android:textColor="#9E9E9E"
+        android:gravity="center"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/sos_call_button"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="📞 Trusted Contact Ko Call Karo"
+        android:backgroundTint="#B71C1C"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/end_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Main theek hoon ✓"
+        android:backgroundTint="#1B5E20"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>

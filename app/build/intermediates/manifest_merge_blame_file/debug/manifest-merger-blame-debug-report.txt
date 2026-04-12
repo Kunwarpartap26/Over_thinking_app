@@ -14,175 +14,196 @@
 12    <uses-permission android:name="android.permission.INTERNET" />
 12-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:5:5-66
 12-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:5:22-64
-13    <uses-permission
-13-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:6:5-7:37
-14        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-14-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:6:22-78
-15        android:maxSdkVersion="28" />
-15-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:7:9-35
-16
-17    <permission
-17-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
-18        android:name="com.tetra.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-18-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
-19        android:protectionLevel="signature" />
-19-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
-20
-21    <uses-permission android:name="com.tetra.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
-21-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
-21-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
-22    <!-- <uses-sdk android:minSdkVersion="14"/> -->
-23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-23-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
-23-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:22-76
-24
-25    <application
-25-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:9:5-37:19
-26        android:allowBackup="true"
-26-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:9-35
-27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-27-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
-28        android:debuggable="true"
-29        android:extractNativeLibs="false"
-30        android:label="TETRA"
-30-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:11:9-30
-31        android:theme="@style/Theme.AppCompat.NoActionBar" >
-31-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:12:9-59
-32        <activity
-32-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:14:9-21:20
-33            android:name="com.tetra.app.ModelDownloadActivity"
-33-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:15:13-50
-34            android:exported="true" >
-34-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:16:13-36
-35            <intent-filter>
-35-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:17:13-20:29
-36                <action android:name="android.intent.action.MAIN" />
-36-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:17-68
-36-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:25-66
-37
-38                <category android:name="android.intent.category.LAUNCHER" />
-38-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:19:17-76
-38-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:19:27-74
-39            </intent-filter>
-40        </activity>
-41        <activity
-41-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:9-25:39
-42            android:name="com.tetra.app.MainActivity"
-42-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:13-41
-43            android:exported="false" />
-43-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:13-37
-44
-45        <provider
-46            android:name="androidx.core.content.FileProvider"
-46-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:28:13-62
-47            android:authorities="com.tetra.app.provider"
-47-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:29:13-60
-48            android:exported="false"
-48-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:30:13-37
-49            android:grantUriPermissions="true" >
-49-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:31:13-47
-50            <meta-data
-50-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:32:13-34:53
-51                android:name="android.support.FILE_PROVIDER_PATHS"
-51-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:33:17-67
-52                android:resource="@xml/file_paths" />
-52-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:34:17-51
-53        </provider>
-54        <provider
-54-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-55            android:name="androidx.startup.InitializationProvider"
-55-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
-56            android:authorities="com.tetra.app.androidx-startup"
-56-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
-57            android:exported="false" >
-57-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
-58            <meta-data
-58-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-59                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-59-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
-60                android:value="androidx.startup" />
-60-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
-61            <meta-data
-61-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/codespace/.gradle/caches/8.13/transforms/0d68695a3fda5c2cb7366fd7246ed41a/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
-62                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-62-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/codespace/.gradle/caches/8.13/transforms/0d68695a3fda5c2cb7366fd7246ed41a/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
-63                android:value="androidx.startup" />
-63-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/codespace/.gradle/caches/8.13/transforms/0d68695a3fda5c2cb7366fd7246ed41a/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
-64            <meta-data
-64-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-65                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-65-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-66                android:value="androidx.startup" />
-66-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-67        </provider>
-68
-69        <receiver
-69-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-70            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-70-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-71            android:directBootAware="false"
-71-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-72            android:enabled="true"
-72-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-73            android:exported="true"
-73-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-74            android:permission="android.permission.DUMP" >
-74-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-75            <intent-filter>
-75-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-76                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-76-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-76-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-77            </intent-filter>
-78            <intent-filter>
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-79                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-79-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-79-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
-80            </intent-filter>
-81            <intent-filter>
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-82                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
-83            </intent-filter>
-84            <intent-filter>
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-85                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
-86            </intent-filter>
-87        </receiver>
-88
-89        <service
-89-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
-90            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-90-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
-91            android:exported="false" >
-91-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
-92            <meta-data
-92-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
-93                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-93-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
-94                android:value="cct" />
-94-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
-95        </service>
-96        <service
-96-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
-97            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-97-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
-98            android:exported="false"
-98-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
-99            android:permission="android.permission.BIND_JOB_SERVICE" >
-99-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
-100        </service>
-101
-102        <receiver
-102-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
-103            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-103-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:33:13-132
-104            android:exported="false" />
-104-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
-105    </application>
-106
-107</manifest>
+13    <uses-permission android:name="android.permission.CALL_PHONE" />
+13-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:6:5-68
+13-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:6:22-66
+14    <uses-permission
+14-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:7:5-8:37
+15        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+15-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:7:22-78
+16        android:maxSdkVersion="28" />
+16-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:8:9-35
+17
+18    <permission
+18-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+19        android:name="com.tetra.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+19-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+20        android:protectionLevel="signature" />
+20-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+21
+22    <uses-permission android:name="com.tetra.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+22-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+23    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+24-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
+24-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:22-76
+25
+26    <application
+26-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:10:5-37:19
+27        android:allowBackup="true"
+27-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:11:9-35
+28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+28-->[androidx.core:core:1.9.0] /home/codespace/.gradle/caches/8.13/transforms/27bb8c70276b6a1d552f276df2b8da7c/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+29        android:debuggable="true"
+30        android:extractNativeLibs="false"
+31        android:label="TETRA"
+31-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:12:9-30
+32        android:theme="@style/Theme.AppCompat.NoActionBar" >
+32-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:13:9-59
+33        <activity
+33-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:15:9-20:20
+34            android:name="com.tetra.app.ModelDownloadActivity"
+34-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:15:19-56
+35            android:exported="true" >
+35-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:15:57-80
+36            <intent-filter>
+36-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:16:13-19:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:17:17-68
+37-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:17:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:17-76
+39-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:18:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity
+42-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:9-73
+43            android:name="com.tetra.app.PINActivity"
+43-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:19-46
+44            android:exported="false" />
+44-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:22:47-71
+45        <activity
+45-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:9-81
+46            android:name="com.tetra.app.MoodTrackerActivity"
+46-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:19-54
+47            android:exported="false" />
+47-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:23:55-79
+48        <activity
+48-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:9-74
+49            android:name="com.tetra.app.MainActivity"
+49-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:19-47
+50            android:exported="false" />
+50-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:24:48-72
+51        <activity
+51-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:9-79
+52            android:name="com.tetra.app.BreathingActivity"
+52-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:19-52
+53            android:exported="false" />
+53-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:25:53-77
+54
+55        <provider
+56            android:name="androidx.core.content.FileProvider"
+56-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:28:13-62
+57            android:authorities="com.tetra.app.provider"
+57-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:29:13-60
+58            android:exported="false"
+58-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:30:13-37
+59            android:grantUriPermissions="true" >
+59-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:31:13-47
+60            <meta-data
+60-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:32:13-34:53
+61                android:name="android.support.FILE_PROVIDER_PATHS"
+61-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:33:17-67
+62                android:resource="@xml/file_paths" />
+62-->/workspaces/Over_thinking_app/app/src/main/AndroidManifest.xml:34:17-51
+63        </provider>
+64        <provider
+64-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+65            android:name="androidx.startup.InitializationProvider"
+65-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+66            android:authorities="com.tetra.app.androidx-startup"
+66-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+67            android:exported="false" >
+67-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+68            <meta-data
+68-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+69-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+70                android:value="androidx.startup" />
+70-->[androidx.emoji2:emoji2:1.2.0] /home/codespace/.gradle/caches/8.13/transforms/bd514604d4c20650e855e88c874ddd8a/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+71            <meta-data
+71-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/codespace/.gradle/caches/8.13/transforms/0d68695a3fda5c2cb7366fd7246ed41a/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+72                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+72-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/codespace/.gradle/caches/8.13/transforms/0d68695a3fda5c2cb7366fd7246ed41a/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+73                android:value="androidx.startup" />
+73-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/codespace/.gradle/caches/8.13/transforms/0d68695a3fda5c2cb7366fd7246ed41a/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+74            <meta-data
+74-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+75                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+76                android:value="androidx.startup" />
+76-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+77        </provider>
+78
+79        <receiver
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+80            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+81            android:directBootAware="false"
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+82            android:enabled="true"
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+83            android:exported="true"
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+84            android:permission="android.permission.DUMP" >
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+85            <intent-filter>
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+86                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+87            </intent-filter>
+88            <intent-filter>
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+89                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+90            </intent-filter>
+91            <intent-filter>
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+92                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+93            </intent-filter>
+94            <intent-filter>
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+95                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+96            </intent-filter>
+97        </receiver>
+98
+99        <service
+99-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
+100            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+100-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
+101            android:exported="false" >
+101-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
+102            <meta-data
+102-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
+103                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+103-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
+104                android:value="cct" />
+104-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
+105        </service>
+106        <service
+106-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
+107            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+107-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
+108            android:exported="false"
+108-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
+109            android:permission="android.permission.BIND_JOB_SERVICE" >
+109-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
+110        </service>
+111
+112        <receiver
+112-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
+113            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+113-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:33:13-132
+114            android:exported="false" />
+114-->[com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
+115    </application>
+116
+117</manifest>

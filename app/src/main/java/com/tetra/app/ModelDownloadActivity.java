@@ -62,7 +62,7 @@ public class ModelDownloadActivity extends AppCompatActivity {
     }
 
     private void launchMain() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, PINActivity.class));
         finish();
     }
 

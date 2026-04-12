@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
+        android:padding="12dp"
         android:gravity="center_vertical">
 
         <TextView
@@ -18,27 +18,35 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TETRA"
-            android:textSize="28sp"
+            android:textSize="26sp"
             android:textColor="#5C6BC0"
             android:textStyle="bold"/>
 
         <Button
+            android:id="@+id/sos_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="🆘 SOS"
+            android:backgroundTint="#B71C1C"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:text="💾 Save PDF"
+            android:layout_height="40dp"
+            android:text="💾 PDF"
             android:backgroundTint="#1B5E20"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"/>
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
+    <View android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#1E1E1E"/>
 
-    <!-- Chat log -->
+    <!-- Chat -->
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
@@ -52,18 +60,15 @@
             android:layout_height="wrap_content"
             android:textColor="#CCCCCC"
             android:textSize="14sp"
-            android:lineSpacingExtra="4dp"
-            android:hint="Apne thoughts yahan share karo..."
-            android:textColorHint="#555555"/>
+            android:lineSpacingExtra="4dp"/>
 
     </ScrollView>
 
-    <View
-        android:layout_width="match_parent"
+    <View android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#1E1E1E"/>
 
-    <!-- Input area -->
+    <!-- Input -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
