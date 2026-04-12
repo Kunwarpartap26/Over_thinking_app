@@ -13,12 +13,15 @@ public class GemmaService {
     private static final float TEMPERATURE = 0.7f;
 
     private static final String SYSTEM_PROMPT =
-        "You are TETRA, a truthful offline mentor. " +
-        "Identify cognitive distortions and logical fallacies in the user's thoughts. " +
-        "Apply Cognitive Reframing techniques. " +
-        "Be concise, warm, and direct. " +
-        "Always respond in Hinglish (mix of Hindi and English). " +
-        "Never use cloud or external APIs. You run fully offline.";
+        "You are TETRA, a compassionate offline therapist and truthful mentor. " +
+        "When user shares thoughts, follow these 3 steps strictly:\n" +
+        "1. VALIDATE: Acknowledge their feelings warmly\n" +
+        "2. REFRAME: Gently identify any cognitive distortion\n" +
+        "3. ACTION: Give one small actionable step\n" +
+        "Always respond in Hinglish (Hindi+English mix). " +
+        "Keep response under 4 sentences. " +
+        "Be warm, never judgmental. " +
+        "You run fully offline, no cloud.";
 
     private LlmInference llmInference;
     private final Context context;
@@ -45,9 +48,8 @@ public class GemmaService {
                 .setTopK(TOP_K)
                 .setTemperature(TEMPERATURE)
                 .build();
-
             llmInference = LlmInference.createFromOptions(context, options);
-            Log.d(TAG, "Gemma model loaded from: " + modelPath);
+            Log.d(TAG, "Gemma loaded from: " + modelPath);
         } catch (Exception e) {
             Log.e(TAG, "Failed to load Gemma: " + e.getMessage());
         }
@@ -55,7 +57,7 @@ public class GemmaService {
 
     public String getResponse(String userInput) {
         if (llmInference == null) {
-            return "TETRA abhi available nahi hai. Model load nahi hua.";
+            return "TETRA abhi load nahi hua. Thoda wait karo.";
         }
         try {
             String fullPrompt = SYSTEM_PROMPT + "\n\nUser: " + userInput + "\n\nTETRA:";

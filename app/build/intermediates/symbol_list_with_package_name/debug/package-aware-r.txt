@@ -3174,6 +3174,7 @@ id ignoreRequest
 id image
 id indeterminate
 id info
+id input_box
 id invisible
 id inward
 id italic
@@ -3305,7 +3306,6 @@ id radio
 id ratio
 id rectangles
 id report_drawn
-id result_text
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3323,6 +3323,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scroll_view
 id scrollable
 id search_badge
 id search_bar
@@ -3337,6 +3338,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id send_button
 id session_log
 id shortcut
 id showCustom
@@ -5053,3 +5055,4 @@ styleable ViewBackgroundHelper android_background backgroundTint backgroundTintM
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 xml data_extraction_rules
+xml file_paths

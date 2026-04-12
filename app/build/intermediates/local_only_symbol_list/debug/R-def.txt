@@ -2,11 +2,13 @@ R_DEF: Internal format may change without notice
 local
 drawable icon
 id download_btn
+id input_box
 id mic_button
 id percent_text
 id progress_bar
-id result_text
 id save_button
+id scroll_view
+id send_button
 id session_log
 id skip_btn
 id status_text
@@ -14,3 +16,4 @@ layout activity_download
 layout activity_main
 string app_name
 xml data_extraction_rules
+xml file_paths

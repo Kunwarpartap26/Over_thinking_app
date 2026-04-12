@@ -10,8 +10,9 @@
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <permission
         android:name="com.tetra.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -28,8 +29,6 @@
         android:extractNativeLibs="false"
         android:label="TETRA"
         android:theme="@style/Theme.AppCompat.NoActionBar" >
-
-        <!-- Download screen is the LAUNCHER -->
         <activity
             android:name="com.tetra.app.ModelDownloadActivity"
             android:exported="true" >
@@ -39,12 +38,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Main app -->
         <activity
             android:name="com.tetra.app.MainActivity"
             android:exported="false" />
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.tetra.app.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.tetra.app.androidx-startup"
