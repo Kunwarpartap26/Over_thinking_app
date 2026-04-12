@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D0D"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TETRA"
+        android:textSize="36sp"
+        android:textColor="#5C6BC0"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Truthful Mentor"
+        android:textSize="12sp"
+        android:textColor="#9E9E9E"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mic button dabao aur bolo..."
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:background="#1E1E1E"
+        android:padding="12dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:id="@+id/session_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#CCCCCC"
+            android:textSize="13sp"
+            android:padding="8dp"/>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/mic_button"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="🎤 Bolo"
+        android:backgroundTint="#5C6BC0"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_marginTop="12dp"/>
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="💾 Save as PDF"
+        android:backgroundTint="#1B5E20"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+</LinearLayout>
