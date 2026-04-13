@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#0D0D0D"
     android:gravity="center"
-    android:padding="32dp"
-    android:background="#0D0D0D">
+    android:padding="32dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,47 +13,32 @@
         android:text="TETRA"
         android:textSize="48sp"
         android:textColor="#5C6BC0"
-        android:textStyle="bold"
-        android:letterSpacing="0.2"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Truthful Mentor — 100% Offline"
-        android:textSize="14sp"
-        android:textColor="#9E9E9E"
-        android:layout_marginTop="8dp"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#1E1E1E"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🧠 TETRA needs to download its AI brain"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
         android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="One-time download (~400MB)\nAfter this, works fully offline forever."
+        android:text="Truthful Mentor — 100% Offline"
         android:textSize="13sp"
-        android:textColor="#9E9E9E"
-        android:gravity="center"
-        android:layout_marginTop="12dp"/>
+        android:textColor="#777777"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🧠 AI Brain Setup"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
 
     <ProgressBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:max="100"
         android:progress="0"
         android:progressTint="#5C6BC0"/>
@@ -71,30 +56,38 @@
         android:id="@+id/status_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ready to download"
+        android:text="Ready to setup"
         android:textColor="#9E9E9E"
         android:textSize="13sp"
         android:gravity="center"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/download_btn"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="32dp"
-        android:text="Download AI Brain"
+        android:layout_height="52dp"
+        android:text="⬇️ Auto Download (WiFi)"
         android:backgroundTint="#5C6BC0"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textSize="15sp"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/manual_btn"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="📋 Manual Setup Instructions"
+        android:backgroundTint="#37474F"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/skip_btn"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:text="Skip for now"
+        android:text="Skip (limited mode)"
         android:backgroundTint="#1E1E1E"
-        android:textColor="#9E9E9E"/>
+        android:textColor="#777777"/>
 
 </LinearLayout>

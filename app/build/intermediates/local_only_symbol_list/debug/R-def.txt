@@ -31,6 +31,7 @@ id end_button
 id generate_report_btn
 id input_box
 id instruction_text
+id manual_btn
 id mic_button
 id mood_emoji
 id mood_label

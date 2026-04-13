@@ -3220,6 +3220,7 @@ id linear
 id listMode
 id list_item
 id m3_side_sheet
+id manual_btn
 id marquee
 id masked
 id match_parent
