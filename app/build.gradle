@@ -1,11 +1,9 @@
 plugins {
     id 'com.android.application'
 }
-
 android {
     namespace 'com.tetra.app'
     compileSdk 34
-
     defaultConfig {
         applicationId "com.tetra.app"
         minSdk 24
@@ -13,28 +11,24 @@ android {
         versionCode 1
         versionName "1.0"
     }
-
     buildTypes {
         release {
             minifyEnabled false
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
     aaptOptions {
         noCompress "bin", "tflite"
     }
 }
-
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
-    // Vosk - correct groupId and latest version
-    implementation 'com.alphacephei:vosk-android:0.3.75'
-    // MediaPipe LLM inference (local Gemma)
     implementation 'com.google.mediapipe:tasks-genai:0.10.14'
+    implementation 'org.tensorflow:tensorflow-lite:2.14.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.4.4'
+    implementation 'com.google.code.gson:gson:2.10.1'
 }

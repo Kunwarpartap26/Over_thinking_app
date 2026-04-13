@@ -1,66 +1,62 @@
 [
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_breathing.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_breathing.xml"
+        "merged": "com.tetra.app-merged_res-31:/drawable_circle_breathing.xml.flat",
+        "source": "com.tetra.app-main-33:/drawable/circle_breathing.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_language_select.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_language_select.xml"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_post_mood.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_post_mood.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_settings.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_settings.xml"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_language_select.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_language_select.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_pin.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_pin.xml"
+        "merged": "com.tetra.app-merged_res-31:/drawable-mdpi_icon.png.flat",
+        "source": "com.tetra.app-main-33:/drawable-mdpi/icon.png"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/drawable-ldpi_icon.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/drawable-ldpi/icon.png"
+        "merged": "com.tetra.app-merged_res-31:/drawable-ldpi_icon.png.flat",
+        "source": "com.tetra.app-main-33:/drawable-ldpi/icon.png"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_weekly_report.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_weekly_report.xml"
+        "merged": "com.tetra.app-merged_res-31:/xml_file_paths.xml.flat",
+        "source": "com.tetra.app-main-33:/xml/file_paths.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_main.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_main.xml"
+        "merged": "com.tetra.app-merged_res-31:/drawable-hdpi_icon.png.flat",
+        "source": "com.tetra.app-main-33:/drawable-hdpi/icon.png"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_mood.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_mood.xml"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_breathing.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_breathing.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_post_mood.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_post_mood.xml"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_weekly_report.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_weekly_report.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/drawable-hdpi_icon.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/drawable-hdpi/icon.png"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_main.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_main.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/xml_data_extraction_rules.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/xml/data_extraction_rules.xml"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_mood.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_mood.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/drawable_circle_breathing.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/drawable/circle_breathing.xml"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_download.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_download.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/xml_file_paths.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/xml/file_paths.xml"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_pin.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_pin.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/layout_activity_download.xml.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/layout/activity_download.xml"
+        "merged": "com.tetra.app-merged_res-31:/xml_data_extraction_rules.xml.flat",
+        "source": "com.tetra.app-main-33:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-merged_res-32:/drawable-mdpi_icon.png.flat",
-        "source": "/home/codespace/.gradle/daemon/8.13/com.tetra.app-main-34:/drawable-mdpi/icon.png"
-    },
-    {
-        "merged": "com.tetra.app-merged_res-32:/layout_activity_download.xml.flat",
-        "source": "com.tetra.app-main-34:/layout/activity_download.xml"
+        "merged": "com.tetra.app-merged_res-31:/layout_activity_settings.xml.flat",
+        "source": "com.tetra.app-main-33:/layout/activity_settings.xml"
     }
 ]

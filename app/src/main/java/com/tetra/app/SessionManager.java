@@ -3,7 +3,6 @@ package com.tetra.app;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SessionManager {
@@ -12,38 +11,45 @@ public class SessionManager {
     private final Context context;
     private final GemmaService gemmaService;
     private final PDFJournalService pdfJournalService;
-    private final List<ChatMessage> sessionMessages;
+    private final AutoSaveManager autoSaveManager;
 
     public SessionManager(Context context) {
         this.context = context;
         this.gemmaService = new GemmaService(context);
         this.pdfJournalService = new PDFJournalService(context);
-        this.sessionMessages = new ArrayList<>();
+        this.autoSaveManager = new AutoSaveManager(context);
         gemmaService.initialize();
     }
 
     public String processUserInputAndGetResponse(String userText) {
         if (userText == null || userText.trim().isEmpty()) return "";
-        sessionMessages.add(new ChatMessage(userText, ChatMessage.Role.USER));
+        ChatMessage userMsg = new ChatMessage(userText, ChatMessage.Role.USER);
+        autoSaveManager.saveMessage(userMsg);
         String aiResponse = gemmaService.getResponse(userText);
-        sessionMessages.add(new ChatMessage(aiResponse, ChatMessage.Role.AI));
+        ChatMessage aiMsg = new ChatMessage(aiResponse, ChatMessage.Role.AI);
+        autoSaveManager.saveMessage(aiMsg);
         Log.d(TAG, "User: " + userText);
         Log.d(TAG, "TETRA: " + aiResponse);
         return aiResponse;
     }
 
     public String saveAndEndSession() {
+        List<ChatMessage> messages = autoSaveManager.loadMessages();
         String pdfPath = null;
-        if (!sessionMessages.isEmpty()) {
-            pdfPath = pdfJournalService.exportToPDF(sessionMessages);
+        if (!messages.isEmpty()) {
+            pdfPath = pdfJournalService.exportToPDF(messages);
+            autoSaveManager.clearMessages();
         }
         gemmaService.releaseMemory();
-        sessionMessages.clear();
         return pdfPath;
     }
 
+    public boolean hasRestoredSession() {
+        return autoSaveManager.hasUnsavedMessages();
+    }
+
     public List<ChatMessage> getSessionMessages() {
-        return sessionMessages;
+        return autoSaveManager.loadMessages();
     }
 
     public String getLanguage() {

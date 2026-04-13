@@ -23,26 +23,24 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-import org.vosk.Model;
-import org.vosk.Recognizer;
-import org.vosk.android.RecognitionListener;
-import org.vosk.android.SpeechService;
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements RecognitionListener {
+public class MainActivity extends AppCompatActivity {
 
     private TextView sessionLog;
     private EditText inputBox;
-    private Button micButton, sendButton, saveButton, sosButton;
+    private Button micButton;
+    private Button sendButton;
+    private Button saveButton;
+    private Button sosButton;
     private ScrollView scrollView;
+
     private SessionManager sessionManager;
     private TextToSpeech tts;
-    private SpeechService speechService;
-    private Model voskModel;
+    private WhisperService whisperService;
     private boolean isListening = false;
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
@@ -58,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -76,26 +73,37 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
                 new String[]{Manifest.permission.RECORD_AUDIO}, 1);
         }
 
+        // Init TTS
         tts = new TextToSpeech(this, status -> {
             if (status == TextToSpeech.SUCCESS)
                 tts.setLanguage(new Locale("hi", "IN"));
         });
 
+        // Init SessionManager
         sessionManager = new SessionManager(this);
 
-        new Thread(() -> {
-            try {
-                ModelUtils.copyModelIfNeeded(getApplicationContext());
-                voskModel = new Model(
-                    getApplicationContext().getFilesDir() + "/model");
-                mainHandler.post(() ->
-                    Toast.makeText(this, "Voice ready! 🎤",
-                        Toast.LENGTH_SHORT).show());
-            } catch (IOException e) {
-                mainHandler.post(() ->
-                    Toast.makeText(this, "Voice model failed",
-                        Toast.LENGTH_SHORT).show());
+        // Restore crashed session
+        if (sessionManager.hasRestoredSession()) {
+            List<ChatMessage> restored = sessionManager.getSessionMessages();
+            appendToLog("📂 Previous session restored (" +
+                restored.size() + " messages)");
+            for (ChatMessage msg : restored) {
+                String label = msg.getRole() == ChatMessage.Role.USER
+                    ? "🧑 You" : "🤖 TETRA";
+                appendToLog(label + ": " + msg.getText());
             }
+        }
+
+        // Init Whisper in background
+        new Thread(() -> {
+            whisperService = new WhisperService(this);
+            whisperService.initialize();
+            mainHandler.post(() -> {
+                if (whisperService.isReady()) {
+                    Toast.makeText(this, "🎤 Voice ready!",
+                        Toast.LENGTH_SHORT).show();
+                }
+            });
         }).start();
 
         sendButton.setOnClickListener(v -> sendTextInput());
@@ -139,10 +147,53 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
         return true;
     }
 
+    private void startListening() {
+        if (whisperService == null || !whisperService.isReady()) {
+            Toast.makeText(this, "Voice model load ho raha hai...",
+                Toast.LENGTH_SHORT).show();
+            return;
+        }
+        isListening = true;
+        micButton.setText("🔴");
+        inputBox.setHint("Bol rahe ho... (tap to stop)");
+
+        whisperService.startListening(new WhisperService.RecognitionCallback() {
+            @Override
+            public void onPartialResult(String text) {
+                mainHandler.post(() -> inputBox.setHint("Listening: " + text));
+            }
+
+            @Override
+            public void onResult(String text) {
+                mainHandler.post(() -> {
+                    stopListening();
+                    if (text != null && !text.trim().isEmpty()) {
+                        processInput(text.trim());
+                    }
+                    inputBox.setHint("Type karo ya mic use karo...");
+                });
+            }
+
+            @Override
+            public void onError(String error) {
+                mainHandler.post(() -> {
+                    stopListening();
+                    Toast.makeText(MainActivity.this,
+                        "Voice error: " + error, Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
+    }
+
+    private void stopListening() {
+        if (whisperService != null) whisperService.stopListening();
+        isListening = false;
+        micButton.setText("🎤");
+    }
+
     private void endSession() {
         String path = sessionManager.saveAndEndSession();
         sessionLog.setText("");
-        // Go to post-mood screen
         Intent intent = new Intent(this, PostMoodActivity.class);
         intent.putExtra("pdf_path", path);
         startActivity(intent);
@@ -158,6 +209,7 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
     private void processInput(String text) {
         appendToLog("🧑 You: " + text);
 
+        // Anxiety detection
         String lower = text.toLowerCase();
         for (String word : ANXIETY_WORDS) {
             if (lower.contains(word)) {
@@ -177,33 +229,6 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
         }).start();
     }
 
-    private void startListening() {
-        if (voskModel == null) {
-            Toast.makeText(this, "Voice load ho raha hai...",
-                Toast.LENGTH_SHORT).show();
-            return;
-        }
-        try {
-            Recognizer rec = new Recognizer(voskModel, 16000.0f);
-            speechService = new SpeechService(rec, 16000.0f);
-            speechService.startListening(this);
-            isListening = true;
-            micButton.setText("🔴");
-        } catch (IOException e) {
-            Toast.makeText(this, "Mic start nahi hua",
-                Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void stopListening() {
-        if (speechService != null) {
-            speechService.stop();
-            speechService = null;
-        }
-        isListening = false;
-        micButton.setText("🎤");
-    }
-
     private void speakOut(String text) {
         if (tts != null)
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts");
@@ -214,34 +239,11 @@ public class MainActivity extends AppCompatActivity implements RecognitionListen
         scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
     }
 
-    private void sharePDF(String path) {
-        File f = new File(path);
-        Uri uri = FileProvider.getUriForFile(this,
-            getPackageName() + ".provider", f);
-        Intent share = new Intent(Intent.ACTION_SEND);
-        share.setType("application/pdf");
-        share.putExtra(Intent.EXTRA_STREAM, uri);
-        share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(Intent.createChooser(share, "Share TETRA Journal"));
-    }
-
-    @Override public void onPartialResult(String h) {
-        inputBox.setHint("Listening: " + h);
-    }
-    @Override public void onResult(String h) {
-        processInput(h); stopListening();
-        inputBox.setHint("Type karo ya mic use karo...");
-    }
-    @Override public void onFinalResult(String h) {
-        processInput(h); stopListening();
-    }
-    @Override public void onError(Exception e) { stopListening(); }
-    @Override public void onTimeout() { stopListening(); }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         stopListening();
+        if (whisperService != null) whisperService.release();
         if (tts != null) { tts.stop(); tts.shutdown(); }
     }
 }

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.tetra.app-mergeDebugResources-30:/values-kn/values-kn.xml",
+            "outputFile": "com.tetra.app-mergeDebugResources-29:/values-kn/values-kn.xml",
             "map": [
                 {
                     "source": "/home/codespace/.gradle/caches/8.13/transforms/f17e48e4daddbe545ea5154dc88f0485/transformed/appcompat-1.6.1/res/values-kn/values-kn.xml",
