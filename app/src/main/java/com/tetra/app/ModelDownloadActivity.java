@@ -17,12 +17,13 @@ import java.net.URL;
 public class ModelDownloadActivity extends AppCompatActivity {
 
     private static final String MODEL_URL =
-        "https://huggingface.co/google/gemma-2b-it-gpu-int4/resolve/main/gemma-2b-it-gpu-int4.bin";
+        "https://drive.usercontent.google.com/download?id=1gcwyHMh0x323CZxmj4TIC7fcoD3Ns8Rv&export=download&confirm=t";
 
     private TextView statusText;
     private TextView percentText;
     private ProgressBar progressBar;
     private Button downloadBtn;
+    private Button manualBtn;
     private Button skipBtn;
 
     @Override
@@ -34,29 +35,43 @@ public class ModelDownloadActivity extends AppCompatActivity {
         percentText = findViewById(R.id.percent_text);
         progressBar = findViewById(R.id.progress_bar);
         downloadBtn = findViewById(R.id.download_btn);
+        manualBtn   = findViewById(R.id.manual_btn);
         skipBtn     = findViewById(R.id.skip_btn);
 
-        // Check if model already exists
-        File modelFile = getModelFile();
-        if (modelFile.exists() && modelFile.length() > 100_000_000L) {
+        if (isModelReady()) {
+            statusText.setText("✅ Model already exists!");
             launchNext();
             return;
         }
 
+        statusText.setText("TETRA ko ek baar AI brain download karna hoga (~1.5GB)");
         downloadBtn.setOnClickListener(v -> startDownload());
+        manualBtn.setOnClickListener(v -> showManualInstructions());
         skipBtn.setOnClickListener(v -> launchNext());
     }
 
-    private File getModelFile() {
-        File dir = new File(getFilesDir(), "models");
-        if (!dir.exists()) dir.mkdirs();
-        return new File(dir, "gemma.bin");
+    private boolean isModelReady() {
+        File modelFile = new File(getFilesDir(), "models/gemma.bin");
+        return modelFile.exists() && modelFile.length() > 100_000_000L;
+    }
+
+    private void showManualInstructions() {
+        statusText.setText(
+            "Manual setup:\n\n" +
+            "1. Kaggle.com pe jao (free signup)\n" +
+            "2. gemma-2b-it-gpu-int4 download karo\n" +
+            "3. Rename to gemma.bin\n" +
+            "4. Copy to phone:\n" +
+            "   Android/data/com.tetra.app/files/models/\n\n" +
+            "Phir app restart karo!"
+        );
     }
 
     private void startDownload() {
         downloadBtn.setEnabled(false);
+        manualBtn.setEnabled(false);
         skipBtn.setEnabled(false);
-        statusText.setText("Downloading TETRA brain... WiFi use karo");
+        statusText.setText("Downloading... WiFi use karo");
         new DownloadTask().execute(MODEL_URL);
     }
 
@@ -77,12 +92,23 @@ public class ModelDownloadActivity extends AppCompatActivity {
             try {
                 URL url = new URL(urls[0]);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setInstanceFollowRedirects(true);
+                conn.setConnectTimeout(30000);
+                conn.setReadTimeout(0); // no timeout for large file
+                conn.setRequestProperty("User-Agent", "Mozilla/5.0");
                 conn.connect();
+
+                int responseCode = conn.getResponseCode();
+                if (responseCode != 200) return false;
+
                 int fileLength = conn.getContentLength();
-                File outFile = getModelFile();
+                File dir = new File(getFilesDir(), "models");
+                dir.mkdirs();
+                File outFile = new File(dir, "gemma.bin");
+
                 try (InputStream input = conn.getInputStream();
                      FileOutputStream output = new FileOutputStream(outFile)) {
-                    byte[] buffer = new byte[4096];
+                    byte[] buffer = new byte[8192];
                     long downloaded = 0;
                     int count;
                     while ((count = input.read(buffer)) != -1) {
@@ -102,16 +128,18 @@ public class ModelDownloadActivity extends AppCompatActivity {
         protected void onProgressUpdate(Integer... values) {
             progressBar.setProgress(values[0]);
             percentText.setText(values[0] + "%");
+            statusText.setText("Downloading... " + values[0] + "%");
         }
 
         @Override
         protected void onPostExecute(Boolean success) {
             if (success) {
-                statusText.setText("TETRA ready!");
+                statusText.setText("✅ TETRA ready!");
                 launchNext();
             } else {
-                statusText.setText("Download failed. Internet check karo.");
+                statusText.setText("❌ Download failed!\nManual setup try karo.");
                 downloadBtn.setEnabled(true);
+                manualBtn.setEnabled(true);
                 skipBtn.setEnabled(true);
             }
         }
