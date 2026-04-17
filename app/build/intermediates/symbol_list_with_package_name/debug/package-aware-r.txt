@@ -3219,6 +3219,8 @@ id line3
 id linear
 id listMode
 id list_item
+id loading_bar
+id loading_text
 id m3_side_sheet
 id manual_btn
 id marquee

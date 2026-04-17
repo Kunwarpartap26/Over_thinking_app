@@ -2,9 +2,7 @@ package com.tetra.app;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,9 +10,11 @@ import android.speech.tts.TextToSpeech;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +23,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import android.net.Uri;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -37,11 +38,14 @@ public class MainActivity extends AppCompatActivity {
     private Button saveButton;
     private Button sosButton;
     private ScrollView scrollView;
+    private ProgressBar loadingBar;
+    private TextView loadingText;
 
     private SessionManager sessionManager;
     private TextToSpeech tts;
     private WhisperService whisperService;
     private boolean isListening = false;
+    private boolean isProcessing = false;
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
     private static final List<String> ANXIETY_WORDS = Arrays.asList(
@@ -59,13 +63,19 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        sessionLog = findViewById(R.id.session_log);
-        inputBox   = findViewById(R.id.input_box);
-        micButton  = findViewById(R.id.mic_button);
-        sendButton = findViewById(R.id.send_button);
-        saveButton = findViewById(R.id.save_button);
-        sosButton  = findViewById(R.id.sos_button);
-        scrollView = findViewById(R.id.scroll_view);
+        sessionLog  = findViewById(R.id.session_log);
+        inputBox    = findViewById(R.id.input_box);
+        micButton   = findViewById(R.id.mic_button);
+        sendButton  = findViewById(R.id.send_button);
+        saveButton  = findViewById(R.id.save_button);
+        sosButton   = findViewById(R.id.sos_button);
+        scrollView  = findViewById(R.id.scroll_view);
+        loadingBar  = findViewById(R.id.loading_bar);
+        loadingText = findViewById(R.id.loading_text);
+
+        // Disable input until Gemma is ready
+        setInputEnabled(false);
+        showLoading(true, "AI brain load ho raha hai...");
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -79,29 +89,37 @@ public class MainActivity extends AppCompatActivity {
                 tts.setLanguage(new Locale("hi", "IN"));
         });
 
-        // Init SessionManager
+        // Init SessionManager (no Gemma yet)
         sessionManager = new SessionManager(this);
 
-        // Restore crashed session
-        if (sessionManager.hasRestoredSession()) {
-            List<ChatMessage> restored = sessionManager.getSessionMessages();
-            appendToLog("📂 Previous session restored (" +
-                restored.size() + " messages)");
-            for (ChatMessage msg : restored) {
-                String label = msg.getRole() == ChatMessage.Role.USER
-                    ? "🧑 You" : "🤖 TETRA";
-                appendToLog(label + ": " + msg.getText());
-            }
-        }
-
-        // Init Whisper in background
+        // Load Gemma + Whisper in background
         new Thread(() -> {
+            // Load Whisper first (small, fast)
             whisperService = new WhisperService(this);
             whisperService.initialize();
+
+            // Then load Gemma (big, slow)
+            mainHandler.post(() ->
+                showLoading(true, "AI model load ho raha hai... (~1 min)"));
+
+            sessionManager.initializeGemmaInBackground();
+
             mainHandler.post(() -> {
-                if (whisperService.isReady()) {
-                    Toast.makeText(this, "🎤 Voice ready!",
-                        Toast.LENGTH_SHORT).show();
+                showLoading(false, "");
+                setInputEnabled(true);
+
+                if (sessionManager.isGemmaReady()) {
+                    appendToLog("🤖 TETRA: Namaste! Main ready hoon. " +
+                        "Apne thoughts share karo. 💙");
+                    speakOut("Namaste! Main TETRA hoon. Apne thoughts share karo.");
+                } else {
+                    appendToLog("⚠️ TETRA: AI brain load nahi hua. " +
+                        "Typed responses only work. Dobara try karo.");
+                }
+
+                // Restore crashed session
+                if (sessionManager.hasRestoredSession()) {
+                    appendToLog("📂 Previous session restored!");
                 }
             });
         }).start();
@@ -126,9 +144,18 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, BreathingActivity.class)));
 
         saveButton.setOnClickListener(v -> endSession());
+    }
 
-        appendToLog("🤖 TETRA: Namaste! Apne thoughts share karo.\n" +
-                   "Type karo ya mic use karo. SOS button anxiety ke liye hai. 💙");
+    private void showLoading(boolean show, String message) {
+        loadingBar.setVisibility(show ? View.VISIBLE : View.GONE);
+        loadingText.setVisibility(show ? View.VISIBLE : View.GONE);
+        loadingText.setText(message);
+    }
+
+    private void setInputEnabled(boolean enabled) {
+        sendButton.setEnabled(enabled);
+        micButton.setEnabled(enabled);
+        inputBox.setEnabled(enabled);
     }
 
     @Override
@@ -155,25 +182,22 @@ public class MainActivity extends AppCompatActivity {
         }
         isListening = true;
         micButton.setText("🔴");
-        inputBox.setHint("Bol rahe ho... (tap to stop)");
+        inputBox.setHint("Bol rahe ho...");
 
         whisperService.startListening(new WhisperService.RecognitionCallback() {
             @Override
             public void onPartialResult(String text) {
                 mainHandler.post(() -> inputBox.setHint("Listening: " + text));
             }
-
             @Override
             public void onResult(String text) {
                 mainHandler.post(() -> {
                     stopListening();
-                    if (text != null && !text.trim().isEmpty()) {
+                    if (text != null && !text.trim().isEmpty())
                         processInput(text.trim());
-                    }
                     inputBox.setHint("Type karo ya mic use karo...");
                 });
             }
-
             @Override
             public void onError(String error) {
                 mainHandler.post(() -> {
@@ -201,30 +225,41 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendTextInput() {
         String text = inputBox.getText().toString().trim();
-        if (text.isEmpty()) return;
+        if (text.isEmpty() || isProcessing) return;
         inputBox.setText("");
         processInput(text);
     }
 
     private void processInput(String text) {
+        if (isProcessing) return;
+        isProcessing = true;
         appendToLog("🧑 You: " + text);
 
         // Anxiety detection
         String lower = text.toLowerCase();
         for (String word : ANXIETY_WORDS) {
             if (lower.contains(word)) {
-                appendToLog("⚠️ TETRA: Lag raha hai tum stressed ho. " +
-                           "SOS button dabao breathing ke liye. 💙");
-                speakOut("Lag raha hai tum stressed ho. SOS button dabao.");
+                appendToLog("⚠️ TETRA: Stressed lag raha hai. " +
+                    "SOS button dabao. 💙");
+                speakOut("Stressed lag raha hai. SOS button dabao.");
                 break;
             }
         }
 
+        // Show thinking indicator
+        appendToLog("🤖 TETRA: Soch raha hoon...");
+
         new Thread(() -> {
             String response = sessionManager.processUserInputAndGetResponse(text);
             mainHandler.post(() -> {
+                // Remove "thinking" message
+                String log = sessionLog.getText().toString();
+                log = log.replace("🤖 TETRA: Soch raha hoon...\n", "");
+                sessionLog.setText(log);
+
                 appendToLog("🤖 TETRA: " + response);
                 speakOut(response);
+                isProcessing = false;
             });
         }).start();
     }
