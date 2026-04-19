@@ -17,7 +17,7 @@ import java.net.URL;
 public class ModelDownloadActivity extends AppCompatActivity {
 
     private static final String MODEL_URL =
-        "https://drive.usercontent.google.com/download?id=1-doaydEhSvy-t03NywhrSCvuuHHYX0iC&export=download&confirm=t";
+        "https://drive.usercontent.google.com/download?id=1ds6ie9ByZB-G9ytwKtaWbvc6lChA-QfD&export=download&confirm=t";
 
     private TextView statusText;
     private TextView percentText;
