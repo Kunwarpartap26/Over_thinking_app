@@ -38,31 +38,40 @@ public class ModelDownloadActivity extends AppCompatActivity {
         manualBtn   = findViewById(R.id.manual_btn);
         skipBtn     = findViewById(R.id.skip_btn);
 
+        // Check if model already exists
         if (isModelReady()) {
-            statusText.setText("✅ Model already exists!");
+            statusText.setText("✅ Model ready!");
             launchNext();
             return;
         }
 
-        statusText.setText("TETRA ko ek baar AI brain download karna hoga (~1.5GB)");
+        statusText.setText("TETRA ko ek baar AI brain download karna hoga (~290MB)");
         downloadBtn.setOnClickListener(v -> startDownload());
         manualBtn.setOnClickListener(v -> showManualInstructions());
         skipBtn.setOnClickListener(v -> launchNext());
     }
 
     private boolean isModelReady() {
-        File modelFile = new File(getFilesDir(), "models/gemma.task");
-        return modelFile.exists() && modelFile.length() > 100_000_000L;
+        File modelFile = getModelFile();
+        boolean ready = modelFile.exists() && modelFile.length() > 10_000_000L;
+        android.util.Log.d("ModelDownload", "Model check: " + modelFile.getAbsolutePath() +
+            " ready=" + ready + " size=" + modelFile.length());
+        return ready;
+    }
+
+    private File getModelFile() {
+        File dir = new File(getFilesDir(), "models");
+        if (!dir.exists()) dir.mkdirs();
+        return new File(dir, "gemma.task");
     }
 
     private void showManualInstructions() {
         statusText.setText(
             "Manual setup:\n\n" +
-            "1. Kaggle.com pe jao (free signup)\n" +
-            "2. gemma-2b-it-gpu-int4 download karo\n" +
-            "3. Rename to gemma.bin\n" +
-            "4. Copy to phone:\n" +
-            "   Android/data/com.tetra.app/files/models/\n\n" +
+            "1. Kaggle.com → gemma-3-270m-it-int8\n" +
+            "2. Download gemma-3-270m-it-int8.task\n" +
+            "3. Copy to phone:\n" +
+            "   Android/data/com.tetra.app/files/models/gemma.task\n\n" +
             "Phir app restart karo!"
         );
     }
@@ -71,7 +80,7 @@ public class ModelDownloadActivity extends AppCompatActivity {
         downloadBtn.setEnabled(false);
         manualBtn.setEnabled(false);
         skipBtn.setEnabled(false);
-        statusText.setText("Downloading... WiFi use karo");
+        statusText.setText("Downloading... (~290MB) WiFi use karo");
         new DownloadTask().execute(MODEL_URL);
     }
 
@@ -81,7 +90,13 @@ public class ModelDownloadActivity extends AppCompatActivity {
         if (!langSelected) {
             startActivity(new Intent(this, LanguageSelectActivity.class));
         } else {
-            startActivity(new Intent(this, PINActivity.class));
+            // Check if PIN is set
+            String pin = prefs.getString("app_pin", "");
+            if (pin.isEmpty()) {
+                startActivity(new Intent(this, PINActivity.class));
+            } else {
+                startActivity(new Intent(this, PINActivity.class));
+            }
         }
         finish();
     }
@@ -94,17 +109,17 @@ public class ModelDownloadActivity extends AppCompatActivity {
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setInstanceFollowRedirects(true);
                 conn.setConnectTimeout(30000);
-                conn.setReadTimeout(0); // no timeout for large file
+                conn.setReadTimeout(0);
                 conn.setRequestProperty("User-Agent", "Mozilla/5.0");
                 conn.connect();
 
                 int responseCode = conn.getResponseCode();
+                android.util.Log.d("ModelDownload", "Response code: " + responseCode);
                 if (responseCode != 200) return false;
 
                 int fileLength = conn.getContentLength();
-                File dir = new File(getFilesDir(), "models");
-                dir.mkdirs();
-                File outFile = new File(dir, "gemma.bin");
+                File outFile = getModelFile();
+                android.util.Log.d("ModelDownload", "Saving to: " + outFile.getAbsolutePath());
 
                 try (InputStream input = conn.getInputStream();
                      FileOutputStream output = new FileOutputStream(outFile)) {
@@ -118,8 +133,10 @@ public class ModelDownloadActivity extends AppCompatActivity {
                             publishProgress((int)(downloaded * 100 / fileLength));
                     }
                 }
+                android.util.Log.d("ModelDownload", "Download complete! Size: " + outFile.length());
                 return true;
             } catch (Exception e) {
+                android.util.Log.e("ModelDownload", "Error: " + e.getMessage());
                 return false;
             }
         }

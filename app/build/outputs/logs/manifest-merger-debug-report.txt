@@ -19,7 +19,7 @@ MERGED from [com.google.android.material:material:1.11.0] /home/codespace/.gradl
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/codespace/.gradle/caches/8.13/transforms/10e8ad48ece38abc7c304101f9469ce9/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/codespace/.gradle/caches/8.13/transforms/d5bb628fbb40a49871445a521592721b/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.6.1] /home/codespace/.gradle/caches/8.13/transforms/f17e48e4daddbe545ea5154dc88f0485/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.mediapipe:tasks-genai:0.10.14] /home/codespace/.gradle/caches/8.13/transforms/848606b9ddbada4d7cbe81c488b20f01/transformed/jetified-tasks-genai-0.10.14/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.mediapipe:tasks-genai:0.10.20] /home/codespace/.gradle/caches/8.13/transforms/3d8adcf6147d292a173c197451b34874/transformed/jetified-tasks-genai-0.10.20/AndroidManifest.xml:2:1-9:12
 MERGED from [org.tensorflow:tensorflow-lite-support:0.4.4] /home/codespace/.gradle/caches/8.13/transforms/176172afe308231c4409c8fd0028ff40/transformed/jetified-tensorflow-lite-support-0.4.4/AndroidManifest.xml:2:1-5:12
 MERGED from [org.tensorflow:tensorflow-lite:2.14.0] /home/codespace/.gradle/caches/8.13/transforms/1a9177ea60b89e4207a234ab211ca8c0/transformed/jetified-tensorflow-lite-2.14.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/codespace/.gradle/caches/8.13/transforms/cce84f993dd311c5b84b9bf370df714d/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
@@ -53,7 +53,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/codes
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /home/codespace/.gradle/caches/8.13/transforms/1881ddac10098ad6ab0eb218bd58ecd3/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] /home/codespace/.gradle/caches/8.13/transforms/648d5c2a836de73eb37dcaa1107cbb9a/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] /home/codespace/.gradle/caches/8.13/transforms/17fd9b11a5c619df7464100def49e274/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.mediapipe:tasks-core:0.10.14] /home/codespace/.gradle/caches/8.13/transforms/e7fe57ecdd92f887471e60ce4cc759fc/transformed/jetified-tasks-core-0.10.14/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.mediapipe:tasks-core:0.10.20] /home/codespace/.gradle/caches/8.13/transforms/11fb65149c063ccaebaa316849c6980d/transformed/jetified-tasks-core-0.10.20/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:15:1-41:12
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] /home/codespace/.gradle/caches/8.13/transforms/086bb5797d1006a46e9c62627d7a963f/transformed/jetified-transport-api-3.0.0/AndroidManifest.xml:15:1-22:12
@@ -216,8 +216,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/codespace/.
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/codespace/.gradle/caches/8.13/transforms/d5bb628fbb40a49871445a521592721b/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.6.1] /home/codespace/.gradle/caches/8.13/transforms/f17e48e4daddbe545ea5154dc88f0485/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.6.1] /home/codespace/.gradle/caches/8.13/transforms/f17e48e4daddbe545ea5154dc88f0485/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
-MERGED from [com.google.mediapipe:tasks-genai:0.10.14] /home/codespace/.gradle/caches/8.13/transforms/848606b9ddbada4d7cbe81c488b20f01/transformed/jetified-tasks-genai-0.10.14/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.mediapipe:tasks-genai:0.10.14] /home/codespace/.gradle/caches/8.13/transforms/848606b9ddbada4d7cbe81c488b20f01/transformed/jetified-tasks-genai-0.10.14/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:tasks-genai:0.10.20] /home/codespace/.gradle/caches/8.13/transforms/3d8adcf6147d292a173c197451b34874/transformed/jetified-tasks-genai-0.10.20/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:tasks-genai:0.10.20] /home/codespace/.gradle/caches/8.13/transforms/3d8adcf6147d292a173c197451b34874/transformed/jetified-tasks-genai-0.10.20/AndroidManifest.xml:5:5-7:41
 MERGED from [org.tensorflow:tensorflow-lite-support:0.4.4] /home/codespace/.gradle/caches/8.13/transforms/176172afe308231c4409c8fd0028ff40/transformed/jetified-tensorflow-lite-support-0.4.4/AndroidManifest.xml:4:3-71
 MERGED from [org.tensorflow:tensorflow-lite-support:0.4.4] /home/codespace/.gradle/caches/8.13/transforms/176172afe308231c4409c8fd0028ff40/transformed/jetified-tensorflow-lite-support-0.4.4/AndroidManifest.xml:4:3-71
 MERGED from [org.tensorflow:tensorflow-lite:2.14.0] /home/codespace/.gradle/caches/8.13/transforms/1a9177ea60b89e4207a234ab211ca8c0/transformed/jetified-tensorflow-lite-2.14.0/AndroidManifest.xml:6:5-7:38
@@ -284,8 +284,8 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /home/codespace/.gradle/cac
 MERGED from [androidx.startup:startup-runtime:1.1.1] /home/codespace/.gradle/caches/8.13/transforms/648d5c2a836de73eb37dcaa1107cbb9a/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.0.0] /home/codespace/.gradle/caches/8.13/transforms/17fd9b11a5c619df7464100def49e274/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] /home/codespace/.gradle/caches/8.13/transforms/17fd9b11a5c619df7464100def49e274/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.mediapipe:tasks-core:0.10.14] /home/codespace/.gradle/caches/8.13/transforms/e7fe57ecdd92f887471e60ce4cc759fc/transformed/jetified-tasks-core-0.10.14/AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.mediapipe:tasks-core:0.10.14] /home/codespace/.gradle/caches/8.13/transforms/e7fe57ecdd92f887471e60ce4cc759fc/transformed/jetified-tasks-core-0.10.14/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:tasks-core:0.10.20] /home/codespace/.gradle/caches/8.13/transforms/11fb65149c063ccaebaa316849c6980d/transformed/jetified-tasks-core-0.10.20/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:tasks-core:0.10.20] /home/codespace/.gradle/caches/8.13/transforms/11fb65149c063ccaebaa316849c6980d/transformed/jetified-tasks-core-0.10.20/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/cc1b53aeddcda56734515feaeed9ffc6/transformed/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /home/codespace/.gradle/caches/8.13/transforms/0f279c50ef263316e3625b97476b2388/transformed/jetified-transport-runtime-3.1.0/AndroidManifest.xml:18:5-20:41
