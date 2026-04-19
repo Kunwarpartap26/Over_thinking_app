@@ -51,7 +51,7 @@ public class ModelDownloadActivity extends AppCompatActivity {
     }
 
     private boolean isModelReady() {
-        File modelFile = new File(getFilesDir(), "models/gemma.bin");
+        File modelFile = new File(getFilesDir(), "models/gemma.task");
         return modelFile.exists() && modelFile.length() > 100_000_000L;
     }
 
