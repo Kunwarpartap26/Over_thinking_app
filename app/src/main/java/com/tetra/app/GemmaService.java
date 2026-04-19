@@ -79,8 +79,6 @@ public class GemmaService {
             LlmInference.LlmInferenceOptions options =
                 LlmInference.LlmInferenceOptions.builder()
                     .setModelPath(modelPath)
-                    .setMaxTokens(MAX_TOKENS)
-                    .setTemperature(TEMPERATURE)
                     .build();
             llmInference = LlmInference.createFromOptions(context, options);
             isLoaded = true;
