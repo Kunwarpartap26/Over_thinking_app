@@ -199,6 +199,9 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
             @Override
+            public void onTimeout() {
+                mainHandler.post(() -> { stopListening(); inputBox.setHint("Type karo ya mic use karo..."); });
+            }
             public void onError(String error) {
                 mainHandler.post(() -> {
                     stopListening();
