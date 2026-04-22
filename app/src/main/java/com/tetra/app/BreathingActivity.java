@@ -15,7 +15,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 
-public class BreathingActivity extends AppCompatActivity {
+public class BreathingActivity extends BaseActivity {
 
     private TextView breathText;
     private TextView cycleText;

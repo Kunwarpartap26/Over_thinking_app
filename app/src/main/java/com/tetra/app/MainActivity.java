@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private TextView sessionLog;
     private EditText inputBox;

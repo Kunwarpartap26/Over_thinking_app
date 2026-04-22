@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PINActivity extends AppCompatActivity {
+public class PINActivity extends BaseActivity {
 
     private TextView pinDisplay;
     private StringBuilder pinInput = new StringBuilder();

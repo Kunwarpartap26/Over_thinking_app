@@ -10,7 +10,7 @@
     <application
         android:allowBackup="true"
         android:label="TETRA"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/Theme.Vault">
 
         <activity android:name=".ModelDownloadActivity" android:exported="true">
             <intent-filter>
@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ThemeSelectActivity"     android:exported="false"/>
         <activity android:name=".LanguageSelectActivity" android:exported="false"/>
         <activity android:name=".PINActivity"           android:exported="false"/>
         <activity android:name=".MoodTrackerActivity"   android:exported="false"/>

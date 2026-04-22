@@ -11,6 +11,13 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "tetra-${variant.buildType.name}.apk"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,3 +37,4 @@ dependencies {
     implementation 'com.google.mediapipe:tasks-genai:0.10.24'
     implementation 'com.google.code.gson:gson:2.10.1'
 }
+

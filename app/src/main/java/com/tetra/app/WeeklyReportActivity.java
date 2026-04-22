@@ -13,7 +13,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeeklyReportActivity extends AppCompatActivity {
+public class WeeklyReportActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

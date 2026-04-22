@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class PostMoodActivity extends AppCompatActivity {
+public class PostMoodActivity extends BaseActivity {
 
     private SeekBar moodSlider;
     private TextView moodEmoji;

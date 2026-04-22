@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ── VAULT (dark indigo — default) ──────────────────── -->
+    <style name="Theme.Vault" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/vault_bg</item>
+        <item name="colorPrimary">@color/vault_accent</item>
+        <item name="colorPrimaryVariant">@color/vault_accent_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/vault_surface</item>
+        <item name="colorOnSurface">@color/vault_text_primary</item>
+        <item name="android:textColorPrimary">@color/vault_text_primary</item>
+        <item name="android:textColorSecondary">@color/vault_text_secondary</item>
+        <item name="android:statusBarColor">@color/vault_bg</item>
+        <item name="android:navigationBarColor">@color/vault_bg</item>
+    </style>
+
+    <!-- ── MIDNIGHT (dark gold) ────────────────────────────── -->
+    <style name="Theme.Midnight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/midnight_bg</item>
+        <item name="colorPrimary">@color/midnight_accent</item>
+        <item name="colorPrimaryVariant">@color/midnight_accent_light</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSurface">@color/midnight_surface</item>
+        <item name="colorOnSurface">@color/midnight_text_primary</item>
+        <item name="android:textColorPrimary">@color/midnight_text_primary</item>
+        <item name="android:textColorSecondary">@color/midnight_text_secondary</item>
+        <item name="android:statusBarColor">@color/midnight_bg</item>
+        <item name="android:navigationBarColor">@color/midnight_bg</item>
+    </style>
+
+    <!-- ── MONSOON (light green) ───────────────────────────── -->
+    <style name="Theme.Monsoon" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@color/monsoon_bg</item>
+        <item name="colorPrimary">@color/monsoon_accent</item>
+        <item name="colorPrimaryVariant">@color/monsoon_accent_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/monsoon_surface</item>
+        <item name="colorOnSurface">@color/monsoon_text_primary</item>
+        <item name="android:textColorPrimary">@color/monsoon_text_primary</item>
+        <item name="android:textColorSecondary">@color/monsoon_text_secondary</item>
+        <item name="android:statusBarColor">@color/monsoon_accent</item>
+        <item name="android:navigationBarColor">@color/monsoon_bg</item>
+    </style>
+
+    <!-- ── TERRACOTTA (light clay) ─────────────────────────── -->
+    <style name="Theme.Terracotta" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@color/terra_bg</item>
+        <item name="colorPrimary">@color/terra_accent</item>
+        <item name="colorPrimaryVariant">@color/terra_accent_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/terra_surface</item>
+        <item name="colorOnSurface">@color/terra_text_primary</item>
+        <item name="android:textColorPrimary">@color/terra_text_primary</item>
+        <item name="android:textColorSecondary">@color/terra_text_secondary</item>
+        <item name="android:statusBarColor">@color/terra_accent</item>
+        <item name="android:navigationBarColor">@color/terra_bg</item>
+    </style>
+
+    <!-- ── CLARITY (light blue) ────────────────────────────── -->
+    <style name="Theme.Clarity" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@color/clarity_bg</item>
+        <item name="colorPrimary">@color/clarity_accent</item>
+        <item name="colorPrimaryVariant">@color/clarity_accent_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSurface">@color/clarity_surface</item>
+        <item name="colorOnSurface">@color/clarity_text_primary</item>
+        <item name="android:textColorPrimary">@color/clarity_text_primary</item>
+        <item name="android:textColorSecondary">@color/clarity_text_secondary</item>
+        <item name="android:statusBarColor">@color/clarity_accent</item>
+        <item name="android:navigationBarColor">@color/clarity_bg</item>
+    </style>
+
+</resources>

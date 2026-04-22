@@ -7,7 +7,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MoodTrackerActivity extends AppCompatActivity {
+public class MoodTrackerActivity extends BaseActivity {
 
     private SeekBar moodSlider;
     private TextView moodEmoji;

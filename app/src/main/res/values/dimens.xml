@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="radius_large">24dp</dimen>
+    <dimen name="radius_medium">16dp</dimen>
+    <dimen name="radius_small">8dp</dimen>
+    <dimen name="radius_bubble_outer">16dp</dimen>
+    <dimen name="radius_bubble_inner">4dp</dimen>
+    <dimen name="spacing_std">16dp</dimen>
+    <dimen name="spacing_tight">8dp</dimen>
+    <dimen name="spacing_xtra">24dp</dimen>
+    <dimen name="elevation_low">2dp</dimen>
+    <dimen name="elevation_mid">4dp</dimen>
+    <dimen name="btn_height">52dp</dimen>
+    <dimen name="input_height">52dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="swatch_size">56dp</dimen>
+    <dimen name="text_title">22sp</dimen>
+    <dimen name="text_subtitle">15sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_label">12sp</dimen>
+</resources>

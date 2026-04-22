@@ -55,18 +55,18 @@ public class GemmaService {
     }
 
     public static boolean isModelReady(Context context) {
-        File modelFile = new File(context.getFilesDir(), "models/gemma.bin");
+        File modelFile = new File(context.getFilesDir(), "models/gemma.task");
         return modelFile.exists() && modelFile.length() > 100_000_000L;
     }
 
     public static String getModelPath(Context context) {
-        return new File(context.getFilesDir(), "models/gemma.bin").getAbsolutePath();
+        return new File(context.getFilesDir(), "models/gemma.task").getAbsolutePath();
     }
 
     private String getLang() {
         SharedPreferences prefs = context.getSharedPreferences("tetra_prefs",
             Context.MODE_PRIVATE);
-        return prefs.getString("app_language", "hinglish");
+        return prefs.getString("app_language", "english");
     }
 
     private String getSystemRole() {

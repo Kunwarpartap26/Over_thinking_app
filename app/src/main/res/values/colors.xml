@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ── VAULT (default dark indigo) ─────────────────── -->
+    <color name="vault_bg">#0D0D0D</color>
+    <color name="vault_surface">#1E1E1E</color>
+    <color name="vault_accent">#5C6BC0</color>
+    <color name="vault_accent_light">#7986CB</color>
+    <color name="vault_text_primary">#EEEEEE</color>
+    <color name="vault_text_secondary">#9E9E9E</color>
+    <color name="vault_bubble_ai">#1A1A2E</color>
+    <color name="vault_bubble_user">#2C2C2C</color>
+    <color name="vault_input_bg">#252525</color>
+    <color name="vault_divider">#2A2A2A</color>
+
+    <!-- ── MIDNIGHT (dark gold) ─────────────────────────── -->
+    <color name="midnight_bg">#121212</color>
+    <color name="midnight_surface">#1C1C1C</color>
+    <color name="midnight_accent">#D4AF37</color>
+    <color name="midnight_accent_light">#E6C84D</color>
+    <color name="midnight_text_primary">#F5F0E8</color>
+    <color name="midnight_text_secondary">#A0998A</color>
+    <color name="midnight_bubble_ai">#1A1A14</color>
+    <color name="midnight_bubble_user">#272720</color>
+    <color name="midnight_input_bg">#222218</color>
+    <color name="midnight_divider">#2C2C24</color>
+
+    <!-- ── MONSOON (light forest green) ─────────────────── -->
+    <color name="monsoon_bg">#F4F6F8</color>
+    <color name="monsoon_surface">#FFFFFF</color>
+    <color name="monsoon_accent">#2C5F2D</color>
+    <color name="monsoon_accent_light">#388E3C</color>
+    <color name="monsoon_text_primary">#1A2E1A</color>
+    <color name="monsoon_text_secondary">#607060</color>
+    <color name="monsoon_bubble_ai">#E8F5E9</color>
+    <color name="monsoon_bubble_user">#C8E6C9</color>
+    <color name="monsoon_input_bg">#ECEFF1</color>
+    <color name="monsoon_divider">#D7E0D8</color>
+
+    <!-- ── TERRACOTTA (light clay) ───────────────────────── -->
+    <color name="terra_bg">#FAF7F2</color>
+    <color name="terra_surface">#FFFFFF</color>
+    <color name="terra_accent">#B35A3D</color>
+    <color name="terra_accent_light">#C96744</color>
+    <color name="terra_text_primary">#2E1A12</color>
+    <color name="terra_text_secondary">#7A5A50</color>
+    <color name="terra_bubble_ai">#FBE9E7</color>
+    <color name="terra_bubble_user">#FFCCBC</color>
+    <color name="terra_input_bg">#F5F0EA</color>
+    <color name="terra_divider">#E8DDD5</color>
+
+    <!-- ── CLARITY (light blue) ─────────────────────────── -->
+    <color name="clarity_bg">#F8F9FA</color>
+    <color name="clarity_surface">#FFFFFF</color>
+    <color name="clarity_accent">#1275E2</color>
+    <color name="clarity_accent_light">#2196F3</color>
+    <color name="clarity_text_primary">#0D1B2A</color>
+    <color name="clarity_text_secondary">#607080</color>
+    <color name="clarity_bubble_ai">#E3F2FD</color>
+    <color name="clarity_bubble_user">#BBDEFB</color>
+    <color name="clarity_input_bg">#EEF2F7</color>
+    <color name="clarity_divider">#D0DCE8</color>
+
+    <!-- ── ALWAYS FIXED (never changes with theme) ──────── -->
+    <color name="sos_red">#B71C1C</color>
+    <color name="sos_red_light">#D32F2F</color>
+    <color name="success_green">#1B5E20</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+</resources>

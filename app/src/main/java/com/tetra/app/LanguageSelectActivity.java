@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LanguageSelectActivity extends AppCompatActivity {
+public class LanguageSelectActivity extends BaseActivity {
 
     private Button btnEnglish, btnHindi, btnHinglish;
     private SharedPreferences prefs;
