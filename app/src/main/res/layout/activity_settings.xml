@@ -53,6 +53,31 @@
             android:background="#1E1E1E"
             android:layout_marginBottom="24dp"/>
 
+        <!-- Theme -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Theme / Rang"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/change_theme_btn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Theme Badlo / Change Theme"
+            android:backgroundTint="#5C6BC0"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="32dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1E1E1E"
+            android:layout_marginBottom="24dp"/>
+
         <!-- SOS Contact -->
         <TextView
             android:layout_width="wrap_content"

@@ -65,6 +65,10 @@ public class SettingsActivity extends BaseActivity {
             Toast.makeText(this, "PIN hata diya!", Toast.LENGTH_SHORT).show();
         });
 
+        findViewById(R.id.change_theme_btn).setOnClickListener(v -> startActivity(new Intent(this, ThemeSelectActivity.class)));
+
+        findViewById(R.id.change_theme_btn).setOnClickListener(v -> startActivity(new Intent(this, ThemeSelectActivity.class)));
+
         findViewById(R.id.back_btn).setOnClickListener(v -> finish());
     }
 
