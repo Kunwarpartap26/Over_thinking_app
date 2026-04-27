@@ -1,188 +1,313 @@
 package com.tetra.app;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.speech.tts.TextToSpeech;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import android.net.Uri;
-import java.io.File;
-import java.util.Arrays;
+import androidx.core.widget.NestedScrollView;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends BaseActivity {
 
-    private TextView sessionLog;
-    private EditText inputBox;
-    private Button micButton;
-    private Button sendButton;
-    private Button saveButton;
-    private Button sosButton;
-    private ScrollView scrollView;
-    private ProgressBar loadingBar;
-    private TextView loadingText;
+    // UI
+    private LinearLayout   chatContainer;
+    private NestedScrollView scrollView;
+    private EditText       inputBox;
+    private Button         sendButton;
+    private Button         micButton;
+    private Button         sosButton;
+    private Button         saveButton;
+    private View           loadingBar;
+    private TextView       loadingText;
 
-    private SessionManager sessionManager;
-    private TextToSpeech tts;
-    private WhisperService whisperService;
+    // Services
+    private SessionManager  sessionManager;
+    private WhisperService  whisperService;
+    private AutoSaveManager autoSaveManager;
+    private PDFJournalService pdfService;
+
+    // State
+    private final List<ChatMessage> messages  = new ArrayList<>();
+    private final Handler           mainHandler = new Handler(Looper.getMainLooper());
+    private final ExecutorService   executor  = Executors.newSingleThreadExecutor();
     private boolean isListening = false;
-    private boolean isProcessing = false;
-    private final Handler mainHandler = new Handler(Looper.getMainLooper());
 
-    private static final List<String> ANXIETY_WORDS = Arrays.asList(
-        "panic","anxiety","attack","breathe","help",
-        "ghabrana","dar","darna","ghabrahat","ro raha",
-        "rona","bahut bura","nahi raha","control nahi",
-        "hosh nahi","dil tez","mar jana","khatam"
-    );
+    // Theme colors resolved at runtime
+    private int colorBubbleAi;
+    private int colorBubbleAiBorder;
+    private int colorBubbleUser;
+    private int colorBubbleUserText;
+    private int colorTextPrimary;
+    private int colorTextSecondary;
+    private int colorAccent;
+    private int colorBackground;
+    private int colorSurface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); // BaseActivity applies theme here
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        resolveThemeColors();
+        bindViews();
+        setupClickListeners();
+        initServices();
+        loadPreviousSession();
+        initModelAsync();
+    }
 
-        sessionLog  = findViewById(R.id.session_log);
-        inputBox    = findViewById(R.id.input_box);
-        micButton   = findViewById(R.id.mic_button);
-        sendButton  = findViewById(R.id.send_button);
-        saveButton  = findViewById(R.id.save_button);
-        sosButton   = findViewById(R.id.sos_button);
-        scrollView  = findViewById(R.id.scroll_view);
-        loadingBar  = findViewById(R.id.loading_bar);
-        loadingText = findViewById(R.id.loading_text);
+    // ── Resolve theme colors from attrs ────────────────────────────────────
+    private void resolveThemeColors() {
+        TypedValue tv = new TypedValue();
+        colorBubbleAi       = resolveAttr(R.attr.tetraBubbleAi);
+        colorBubbleAiBorder = resolveAttr(R.attr.tetraBubbleAiBorder);
+        colorBubbleUser     = resolveAttr(R.attr.tetraBubbleUser);
+        colorBubbleUserText = resolveAttr(R.attr.tetraBubbleUserText);
+        colorTextPrimary    = resolveAttr(R.attr.tetraTextPrimary);
+        colorTextSecondary  = resolveAttr(R.attr.tetraTextSecondary);
+        colorAccent         = resolveAttr(R.attr.tetraAccent);
+        colorBackground     = resolveAttr(R.attr.tetraBackground);
+        colorSurface        = resolveAttr(R.attr.tetraSurface);
+    }
 
-        // Disable input until Gemma is ready
-        setInputEnabled(false);
-        showLoading(true, "AI brain load ho raha hai...");
+    private int resolveAttr(int attr) {
+        TypedValue tv = new TypedValue();
+        getTheme().resolveAttribute(attr, tv, true);
+        return tv.data;
+    }
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                new String[]{Manifest.permission.RECORD_AUDIO}, 1);
-        }
+    // ── Bind views ─────────────────────────────────────────────────────────
+    private void bindViews() {
+        chatContainer = findViewById(R.id.chat_container);
+        scrollView    = findViewById(R.id.scroll_view);
+        inputBox      = findViewById(R.id.input_box);
+        sendButton    = findViewById(R.id.send_button);
+        micButton     = findViewById(R.id.mic_button);
+        sosButton     = findViewById(R.id.sos_button);
+        saveButton    = findViewById(R.id.save_button);
+        loadingBar    = findViewById(R.id.loading_bar);
+        loadingText   = findViewById(R.id.loading_text);
+    }
 
-        // Init TTS
-        tts = new TextToSpeech(this, status -> {
-            if (status == TextToSpeech.SUCCESS)
-                tts.setLanguage(new Locale("hi", "IN"));
+    // ── Click listeners ────────────────────────────────────────────────────
+    private void setupClickListeners() {
+        sendButton.setOnClickListener(v -> {
+            String text = inputBox.getText().toString().trim();
+            if (!text.isEmpty()) {
+                inputBox.setText("");
+                processInput(text);
+            }
         });
-
-        // Init SessionManager (no Gemma yet)
-        sessionManager = new SessionManager(this);
-
-        // Load Gemma + Whisper in background
-        new Thread(() -> {
-            // Load Whisper first (small, fast)
-            whisperService = new WhisperService(this);
-            whisperService.initialize();
-
-            // Then load Gemma (big, slow)
-            mainHandler.post(() ->
-                showLoading(true, "AI model load ho raha hai... (~1 min)"));
-
-            sessionManager.initializeGemmaInBackground();
-
-            mainHandler.post(() -> {
-                showLoading(false, "");
-                setInputEnabled(true);
-
-                if (sessionManager.isGemmaReady()) {
-                    appendToLog("🤖 TETRA: Namaste! Main ready hoon. " +
-                        "Apne thoughts share karo. 💙");
-                    speakOut("Namaste! Main TETRA hoon. Apne thoughts share karo.");
-                } else {
-                    appendToLog("⚠️ TETRA: AI brain load nahi hua. " +
-                        "Typed responses only work. Dobara try karo.");
-                }
-
-                // Restore crashed session
-                if (sessionManager.hasRestoredSession()) {
-                    appendToLog("📂 Previous session restored!");
-                }
-            });
-        }).start();
-
-        sendButton.setOnClickListener(v -> sendTextInput());
 
         inputBox.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_SEND ||
-               (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                sendTextInput();
-                return true;
+            String text = inputBox.getText().toString().trim();
+            if (!text.isEmpty()) {
+                inputBox.setText("");
+                processInput(text);
             }
-            return false;
+            return true;
         });
 
+        // Push-to-talk mic
         micButton.setOnClickListener(v -> {
-            if (!isListening) startListening();
-            else stopListening();
+            if (!isListening) {
+                startListening();
+            } else {
+                stopListening();
+            }
         });
 
-        sosButton.setOnClickListener(v ->
-            startActivity(new Intent(this, BreathingActivity.class)));
+        sosButton.setOnClickListener(v -> {
+            startActivity(new Intent(this, BreathingActivity.class));
+        });
 
-        saveButton.setOnClickListener(v -> endSession());
-    }
+        saveButton.setOnClickListener(v -> saveSession());
 
-    private void showLoading(boolean show, String message) {
-        loadingBar.setVisibility(show ? View.VISIBLE : View.GONE);
-        loadingText.setVisibility(show ? View.VISIBLE : View.GONE);
-        loadingText.setText(message);
-    }
-
-    private void setInputEnabled(boolean enabled) {
-        sendButton.setEnabled(enabled);
-        micButton.setEnabled(enabled);
-        inputBox.setEnabled(enabled);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 1, 0, "⚙️ Settings");
-        menu.add(0, 2, 0, "📊 Weekly Report");
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == 1)
+        saveButton.setOnLongClickListener(v -> {
             startActivity(new Intent(this, SettingsActivity.class));
-        else if (item.getItemId() == 2)
-            startActivity(new Intent(this, WeeklyReportActivity.class));
-        return true;
+            return true;
+        });
     }
 
+    // ── Init services ──────────────────────────────────────────────────────
+    private void initServices() {
+        whisperService  = new WhisperService(this);
+        whisperService.initialize();
+        autoSaveManager = new AutoSaveManager(this);
+        pdfService      = new PDFJournalService(this);
+        sessionManager  = new SessionManager(this);
+    }
+
+    // ── Load previous session ──────────────────────────────────────────────
+    private void loadPreviousSession() {
+        List<ChatMessage> saved = autoSaveManager.loadMessages();
+        if (saved != null && !saved.isEmpty()) {
+            messages.addAll(saved);
+            for (ChatMessage msg : saved) {
+                boolean isUser = msg.getRole() == ChatMessage.Role.USER;
+                addBubble(msg.getText(), isUser, false);
+            }
+            addTimestampDivider("Previous session restored");
+        }
+    }
+
+    // ── Init model on background thread ───────────────────────────────────
+    private void initModelAsync() {
+        showLoading(true);
+        executor.execute(() -> {
+            sessionManager.initializeGemmaInBackground();
+            mainHandler.post(() -> {
+                showLoading(false);
+                if (sessionManager.isGemmaReady()) {
+                    addBubble("Namaste! Main ready hoon. Apne thoughts share karo. 💙",
+                        false, true);
+                } else {
+                    addBubble("AI brain load nahi hua. Type karke baat karo — " +
+                        "main sun raha hoon.", false, true);
+                }
+            });
+        });
+    }
+
+    // ── Process user input ─────────────────────────────────────────────────
+    private void processInput(String text) {
+        addBubble(text, true, true);
+        messages.add(new ChatMessage(text, ChatMessage.Role.USER));
+        autoSaveManager.saveMessage(messages.get(messages.size()-1));
+
+        // Typing indicator
+        addBubble("...", false, false);
+
+        executor.execute(() -> {
+            String response = sessionManager.processUserInputAndGetResponse(text);
+            mainHandler.post(() -> {
+                // Remove typing indicator (last bubble)
+                if (chatContainer.getChildCount() > 0) {
+                    chatContainer.removeViewAt(chatContainer.getChildCount() - 1);
+                }
+                addBubble(response, false, true);
+                messages.add(new ChatMessage(response, ChatMessage.Role.AI));
+                autoSaveManager.saveMessage(messages.get(messages.size()-1));
+            });
+        });
+    }
+
+    // ══════════════════════════════════════════════════════════════════════
+    //  CORE: addBubble — creates themed chat bubbles programmatically
+    // ══════════════════════════════════════════════════════════════════════
+    private void addBubble(String text, boolean isUser, boolean animate) {
+        // Outer row — full width, controls alignment
+        LinearLayout row = new LinearLayout(this);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT);
+        rowParams.setMargins(0, 6, 0, 6);
+        row.setLayoutParams(rowParams);
+        row.setGravity(isUser ? Gravity.END : Gravity.START);
+
+        // Bubble text view
+        TextView bubble = new TextView(this);
+        bubble.setText(text);
+        bubble.setTextSize(15f);
+        bubble.setLineSpacing(4f, 1f);
+        bubble.setPadding(dp(14), dp(10), dp(14), dp(10));
+
+        // Max width = 80% of screen
+        int maxWidth = (int)(getResources().getDisplayMetrics().widthPixels * 0.80f);
+
+        LinearLayout.LayoutParams bubbleParams = new LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT);
+        bubbleParams.setMargins(
+            isUser ? dp(48) : dp(4),
+            0,
+            isUser ? dp(4) : dp(48),
+            0);
+        bubble.setLayoutParams(bubbleParams);
+        bubble.setMaxWidth(maxWidth);
+
+        if (isUser) {
+            // User bubble — accent color, right tail
+            bubble.setTextColor(colorBubbleUserText);
+            bubble.setBackgroundColor(colorBubbleUser);
+            // Apply asymmetric corners via custom drawable
+            try {
+                bubble.setBackground(getDrawable(R.drawable.bg_bubble_user));
+                bubble.setTextColor(colorBubbleUserText);
+            } catch (Exception e) {
+                bubble.setBackgroundColor(colorBubbleUser);
+            }
+        } else {
+            // AI bubble — surface color, accent left border
+            bubble.setTextColor(colorTextPrimary);
+            try {
+                bubble.setBackground(getDrawable(R.drawable.bg_bubble_ai));
+            } catch (Exception e) {
+                bubble.setBackgroundColor(colorBubbleAi);
+            }
+        }
+
+        row.addView(bubble);
+        chatContainer.addView(row);
+
+        // Animate in
+        if (animate) {
+            row.setAlpha(0f);
+            row.setTranslationY(20f);
+            row.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(250)
+                .start();
+        }
+
+        // Auto scroll to bottom
+        scrollView.post(() -> scrollView.fullScroll(View.FOCUS_DOWN));
+    }
+
+    // ── Timestamp divider ──────────────────────────────────────────────────
+    private void addTimestampDivider(String label) {
+        TextView ts = new TextView(this);
+        ts.setText(label);
+        ts.setTextSize(11f);
+        ts.setTextColor(colorTextSecondary);
+        ts.setGravity(Gravity.CENTER);
+        ts.setAllCaps(true);
+        ts.setLetterSpacing(0.05f);
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT);
+        p.setMargins(0, dp(12), 0, dp(12));
+        ts.setLayoutParams(p);
+        chatContainer.addView(ts);
+    }
+
+    // ── Push-to-talk mic ───────────────────────────────────────────────────
     private void startListening() {
-        if (whisperService == null || !whisperService.isReady()) {
-            Toast.makeText(this, "Voice model load ho raha hai...",
-                Toast.LENGTH_SHORT).show();
+        if (!whisperService.isReady()) {
+            Toast.makeText(this, "Mic unavailable", Toast.LENGTH_SHORT).show();
             return;
         }
         isListening = true;
         micButton.setText("🔴");
-        inputBox.setHint("Bol rahe ho...");
+        micButton.setBackgroundTintList(
+            android.content.res.ColorStateList.valueOf(0xFFB71C1C));
+        inputBox.setHint("Recording... tap mic to stop");
 
         whisperService.startListening(new WhisperService.RecognitionCallback() {
             @Override
@@ -192,96 +317,95 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onResult(String text) {
                 mainHandler.post(() -> {
-                    stopListening();
-                    if (text != null && !text.trim().isEmpty())
+                    isListening = false;
+                    resetMicButton();
+                    if (text != null && !text.trim().isEmpty()) {
+                        inputBox.setText(text.trim());
+                        inputBox.setSelection(text.trim().length());
+                        inputBox.setHint("Type karo ya mic use karo...");
+                        // Auto-send after transcription
                         processInput(text.trim());
-                    inputBox.setHint("Type karo ya mic use karo...");
+                        inputBox.setText("");
+                    }
+                });
+            }
+            @Override
+            public void onError(String error) {
+                mainHandler.post(() -> {
+                    isListening = false;
+                    resetMicButton();
+                    Toast.makeText(MainActivity.this,
+                        "Voice error, please try again", Toast.LENGTH_SHORT).show();
                 });
             }
             @Override
             public void onTimeout() {
-                mainHandler.post(() -> { stopListening(); inputBox.setHint("Type karo ya mic use karo..."); });
-            }
-            public void onError(String error) {
                 mainHandler.post(() -> {
-                    stopListening();
-                    Toast.makeText(MainActivity.this,
-                        "Voice error: " + error, Toast.LENGTH_SHORT).show();
+                    isListening = false;
+                    resetMicButton();
+                    inputBox.setHint("Type karo ya mic use karo...");
                 });
             }
         });
     }
 
     private void stopListening() {
-        if (whisperService != null) whisperService.stopListening();
-        isListening = false;
+        // Show transcribing state
+        micButton.setText("⏳");
+        micButton.setBackgroundTintList(
+            android.content.res.ColorStateList.valueOf(colorAccent));
+        inputBox.setHint("Transcribing...");
+        whisperService.stopListening();
+        // onResult callback will fire and reset the button
+    }
+
+    private void resetMicButton() {
         micButton.setText("🎤");
+        micButton.setBackgroundTintList(
+            android.content.res.ColorStateList.valueOf(colorSurface));
+        inputBox.setHint("Type karo ya mic use karo...");
+        isListening = false;
     }
 
-    private void endSession() {
-        String path = sessionManager.saveAndEndSession();
-        sessionLog.setText("");
-        Intent intent = new Intent(this, PostMoodActivity.class);
-        intent.putExtra("pdf_path", path);
-        startActivity(intent);
+    // ── Loading state ──────────────────────────────────────────────────────
+    private void showLoading(boolean show) {
+        loadingBar.setVisibility(show ? View.VISIBLE : View.GONE);
+        loadingText.setVisibility(show ? View.VISIBLE : View.GONE);
+        sendButton.setEnabled(!show);
+        micButton.setEnabled(!show);
     }
 
-    private void sendTextInput() {
-        String text = inputBox.getText().toString().trim();
-        if (text.isEmpty() || isProcessing) return;
-        inputBox.setText("");
-        processInput(text);
-    }
-
-    private void processInput(String text) {
-        if (isProcessing) return;
-        isProcessing = true;
-        appendToLog("🧑 You: " + text);
-
-        // Anxiety detection
-        String lower = text.toLowerCase();
-        for (String word : ANXIETY_WORDS) {
-            if (lower.contains(word)) {
-                appendToLog("⚠️ TETRA: Stressed lag raha hai. " +
-                    "SOS button dabao. 💙");
-                speakOut("Stressed lag raha hai. SOS button dabao.");
-                break;
-            }
+    // ── Save session to PDF ────────────────────────────────────────────────
+    private void saveSession() {
+        if (messages.isEmpty()) {
+            Toast.makeText(this, "Koi session nahi hai abhi", Toast.LENGTH_SHORT).show();
+            return;
         }
-
-        // Show thinking indicator
-        appendToLog("🤖 TETRA: Soch raha hoon...");
-
-        new Thread(() -> {
-            String response = sessionManager.processUserInputAndGetResponse(text);
+        executor.execute(() -> {
+            String path = pdfService.exportToPDF(messages);
             mainHandler.post(() -> {
-                // Remove "thinking" message
-                String log = sessionLog.getText().toString();
-                log = log.replace("🤖 TETRA: Soch raha hoon...\n", "");
-                sessionLog.setText(log);
-
-                appendToLog("🤖 TETRA: " + response);
-                speakOut(response);
-                isProcessing = false;
+                if (path != null) {
+                    Toast.makeText(this,
+                        "Journal saved! Documents/TETRA/ mein dekho",
+                        Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this,
+                        "Save failed. Storage check karo.",
+                        Toast.LENGTH_SHORT).show();
+                }
             });
-        }).start();
+        });
     }
 
-    private void speakOut(String text) {
-        if (tts != null)
-            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "tts");
-    }
-
-    private void appendToLog(String msg) {
-        sessionLog.setText(sessionLog.getText() + "\n" + msg + "\n");
-        scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
+    // ── Utility ───────────────────────────────────────────────────────────
+    private int dp(int value) {
+        return (int)(value * getResources().getDisplayMetrics().density);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopListening();
-        if (whisperService != null) whisperService.release();
-        if (tts != null) { tts.stop(); tts.shutdown(); }
+        whisperService.release();
+        executor.shutdown();
     }
 }

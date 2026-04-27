@@ -1,74 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- ── VAULT (dark indigo — default) ──────────────────── -->
-    <style name="Theme.Vault" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/vault_bg</item>
-        <item name="colorPrimary">@color/vault_accent</item>
-        <item name="colorPrimaryVariant">@color/vault_accent_light</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSurface">@color/vault_surface</item>
-        <item name="colorOnSurface">@color/vault_text_primary</item>
-        <item name="android:textColorPrimary">@color/vault_text_primary</item>
-        <item name="android:textColorSecondary">@color/vault_text_secondary</item>
-        <item name="android:statusBarColor">@color/vault_bg</item>
-        <item name="android:navigationBarColor">@color/vault_bg</item>
+    <!-- ══════════════════════════════════════════ -->
+    <!--  BASE THEME — shared by all               -->
+    <!-- ══════════════════════════════════════════ -->
+    <style name="Theme.Tetra.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Fixed safety colors -->
+        <item name="tetraSosColor"    >@color/tetra_sos_red</item>
+        <item name="tetraSuccessColor">@color/tetra_success</item>
     </style>
 
-    <!-- ── MIDNIGHT (dark gold) ────────────────────────────── -->
-    <style name="Theme.Midnight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/midnight_bg</item>
-        <item name="colorPrimary">@color/midnight_accent</item>
-        <item name="colorPrimaryVariant">@color/midnight_accent_light</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <item name="colorSurface">@color/midnight_surface</item>
-        <item name="colorOnSurface">@color/midnight_text_primary</item>
-        <item name="android:textColorPrimary">@color/midnight_text_primary</item>
-        <item name="android:textColorSecondary">@color/midnight_text_secondary</item>
-        <item name="android:statusBarColor">@color/midnight_bg</item>
-        <item name="android:navigationBarColor">@color/midnight_bg</item>
+    <!-- ══════════════════════════════════════════ -->
+    <!--  VAULT (Default - Dark Indigo)             -->
+    <!-- ══════════════════════════════════════════ -->
+    <style name="Theme.Vault" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/vault_background</item>
+        <item name="colorPrimary"            >@color/vault_accent</item>
+        <item name="colorPrimaryVariant"     >@color/vault_accent_light</item>
+        <item name="colorSurface"            >@color/vault_surface</item>
+        <item name="android:colorBackground" >@color/vault_background</item>
+
+        <!-- Custom attrs -->
+        <item name="tetraBackground"         >@color/vault_background</item>
+        <item name="tetraSurface"            >@color/vault_surface</item>
+        <item name="tetraSurfaceHigh"        >@color/vault_surface_high</item>
+        <item name="tetraAccent"             >@color/vault_accent</item>
+        <item name="tetraAccentLight"        >@color/vault_accent_light</item>
+        <item name="tetraTextPrimary"        >@color/vault_text_primary</item>
+        <item name="tetraTextSecondary"      >@color/vault_text_secondary</item>
+        <item name="tetraTextOnAccent"       >@color/vault_text_on_accent</item>
+        <item name="tetraBubbleAi"           >@color/vault_bubble_ai</item>
+        <item name="tetraBubbleAiBorder"     >@color/vault_bubble_ai_border</item>
+        <item name="tetraBubbleUser"         >@color/vault_bubble_user</item>
+        <item name="tetraBubbleUserText"     >@color/vault_bubble_user_text</item>
+        <item name="tetraInputBackground"    >@color/vault_input_bg</item>
+        <item name="tetraTimestamp"          >@color/vault_timestamp</item>
+        <item name="tetraDivider"            >@color/vault_divider</item>
+        <item name="tetraBtnPrimary"         >@color/vault_accent</item>
+        <item name="tetraBtnPrimaryText"     >@color/vault_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder" >@color/vault_accent</item>
     </style>
 
-    <!-- ── MONSOON (light green) ───────────────────────────── -->
-    <style name="Theme.Monsoon" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@color/monsoon_bg</item>
-        <item name="colorPrimary">@color/monsoon_accent</item>
-        <item name="colorPrimaryVariant">@color/monsoon_accent_light</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSurface">@color/monsoon_surface</item>
-        <item name="colorOnSurface">@color/monsoon_text_primary</item>
-        <item name="android:textColorPrimary">@color/monsoon_text_primary</item>
-        <item name="android:textColorSecondary">@color/monsoon_text_secondary</item>
-        <item name="android:statusBarColor">@color/monsoon_accent</item>
-        <item name="android:navigationBarColor">@color/monsoon_bg</item>
+    <!-- ══════════════════════════════════════════ -->
+    <!--  MIDNIGHT (Dark Gold)                      -->
+    <!-- ══════════════════════════════════════════ -->
+    <style name="Theme.Midnight" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/midnight_background</item>
+        <item name="colorPrimary"            >@color/midnight_accent</item>
+        <item name="colorPrimaryVariant"     >@color/midnight_accent_light</item>
+        <item name="colorSurface"            >@color/midnight_surface</item>
+        <item name="android:colorBackground" >@color/midnight_background</item>
+
+        <item name="tetraBackground"         >@color/midnight_background</item>
+        <item name="tetraSurface"            >@color/midnight_surface</item>
+        <item name="tetraSurfaceHigh"        >@color/midnight_surface_high</item>
+        <item name="tetraAccent"             >@color/midnight_accent</item>
+        <item name="tetraAccentLight"        >@color/midnight_accent_light</item>
+        <item name="tetraTextPrimary"        >@color/midnight_text_primary</item>
+        <item name="tetraTextSecondary"      >@color/midnight_text_secondary</item>
+        <item name="tetraTextOnAccent"       >@color/midnight_text_on_accent</item>
+        <item name="tetraBubbleAi"           >@color/midnight_bubble_ai</item>
+        <item name="tetraBubbleAiBorder"     >@color/midnight_bubble_ai_border</item>
+        <item name="tetraBubbleUser"         >@color/midnight_bubble_user</item>
+        <item name="tetraBubbleUserText"     >@color/midnight_bubble_user_text</item>
+        <item name="tetraInputBackground"    >@color/midnight_input_bg</item>
+        <item name="tetraTimestamp"          >@color/midnight_timestamp</item>
+        <item name="tetraDivider"            >@color/midnight_divider</item>
+        <item name="tetraBtnPrimary"         >@color/midnight_accent</item>
+        <item name="tetraBtnPrimaryText"     >@color/midnight_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder" >@color/midnight_accent</item>
     </style>
 
-    <!-- ── TERRACOTTA (light clay) ─────────────────────────── -->
-    <style name="Theme.Terracotta" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@color/terra_bg</item>
-        <item name="colorPrimary">@color/terra_accent</item>
-        <item name="colorPrimaryVariant">@color/terra_accent_light</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSurface">@color/terra_surface</item>
-        <item name="colorOnSurface">@color/terra_text_primary</item>
-        <item name="android:textColorPrimary">@color/terra_text_primary</item>
-        <item name="android:textColorSecondary">@color/terra_text_secondary</item>
-        <item name="android:statusBarColor">@color/terra_accent</item>
-        <item name="android:navigationBarColor">@color/terra_bg</item>
+    <!-- ══════════════════════════════════════════ -->
+    <!--  MONSOON (Light Forest Green)              -->
+    <!-- ══════════════════════════════════════════ -->
+    <style name="Theme.Monsoon" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/monsoon_background</item>
+        <item name="colorPrimary"            >@color/monsoon_accent</item>
+        <item name="colorPrimaryVariant"     >@color/monsoon_accent_light</item>
+        <item name="colorSurface"            >@color/monsoon_surface</item>
+        <item name="android:colorBackground" >@color/monsoon_background</item>
+
+        <item name="tetraBackground"         >@color/monsoon_background</item>
+        <item name="tetraSurface"            >@color/monsoon_surface</item>
+        <item name="tetraSurfaceHigh"        >@color/monsoon_surface_high</item>
+        <item name="tetraAccent"             >@color/monsoon_accent</item>
+        <item name="tetraAccentLight"        >@color/monsoon_accent_light</item>
+        <item name="tetraTextPrimary"        >@color/monsoon_text_primary</item>
+        <item name="tetraTextSecondary"      >@color/monsoon_text_secondary</item>
+        <item name="tetraTextOnAccent"       >@color/monsoon_text_on_accent</item>
+        <item name="tetraBubbleAi"           >@color/monsoon_bubble_ai</item>
+        <item name="tetraBubbleAiBorder"     >@color/monsoon_bubble_ai_border</item>
+        <item name="tetraBubbleUser"         >@color/monsoon_bubble_user</item>
+        <item name="tetraBubbleUserText"     >@color/monsoon_bubble_user_text</item>
+        <item name="tetraInputBackground"    >@color/monsoon_input_bg</item>
+        <item name="tetraTimestamp"          >@color/monsoon_timestamp</item>
+        <item name="tetraDivider"            >@color/monsoon_divider</item>
+        <item name="tetraBtnPrimary"         >@color/monsoon_accent</item>
+        <item name="tetraBtnPrimaryText"     >@color/monsoon_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder" >@color/monsoon_accent</item>
     </style>
 
-    <!-- ── CLARITY (light blue) ────────────────────────────── -->
-    <style name="Theme.Clarity" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@color/clarity_bg</item>
-        <item name="colorPrimary">@color/clarity_accent</item>
-        <item name="colorPrimaryVariant">@color/clarity_accent_light</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSurface">@color/clarity_surface</item>
-        <item name="colorOnSurface">@color/clarity_text_primary</item>
-        <item name="android:textColorPrimary">@color/clarity_text_primary</item>
-        <item name="android:textColorSecondary">@color/clarity_text_secondary</item>
-        <item name="android:statusBarColor">@color/clarity_accent</item>
-        <item name="android:navigationBarColor">@color/clarity_bg</item>
+    <!-- ══════════════════════════════════════════ -->
+    <!--  TERRACOTTA (Light Clay)                   -->
+    <!-- ══════════════════════════════════════════ -->
+    <style name="Theme.Terracotta" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/terracotta_background</item>
+        <item name="colorPrimary"            >@color/terracotta_accent</item>
+        <item name="colorPrimaryVariant"     >@color/terracotta_accent_light</item>
+        <item name="colorSurface"            >@color/terracotta_surface</item>
+        <item name="android:colorBackground" >@color/terracotta_background</item>
+
+        <item name="tetraBackground"         >@color/terracotta_background</item>
+        <item name="tetraSurface"            >@color/terracotta_surface</item>
+        <item name="tetraSurfaceHigh"        >@color/terracotta_surface_high</item>
+        <item name="tetraAccent"             >@color/terracotta_accent</item>
+        <item name="tetraAccentLight"        >@color/terracotta_accent_light</item>
+        <item name="tetraTextPrimary"        >@color/terracotta_text_primary</item>
+        <item name="tetraTextSecondary"      >@color/terracotta_text_secondary</item>
+        <item name="tetraTextOnAccent"       >@color/terracotta_text_on_accent</item>
+        <item name="tetraBubbleAi"           >@color/terracotta_bubble_ai</item>
+        <item name="tetraBubbleAiBorder"     >@color/terracotta_bubble_ai_border</item>
+        <item name="tetraBubbleUser"         >@color/terracotta_bubble_user</item>
+        <item name="tetraBubbleUserText"     >@color/terracotta_bubble_user_text</item>
+        <item name="tetraInputBackground"    >@color/terracotta_input_bg</item>
+        <item name="tetraTimestamp"          >@color/terracotta_timestamp</item>
+        <item name="tetraDivider"            >@color/terracotta_divider</item>
+        <item name="tetraBtnPrimary"         >@color/terracotta_accent</item>
+        <item name="tetraBtnPrimaryText"     >@color/terracotta_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder" >@color/terracotta_accent</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!--  CLARITY (Light Blue)                      -->
+    <!-- ══════════════════════════════════════════ -->
+    <style name="Theme.Clarity" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/clarity_background</item>
+        <item name="colorPrimary"            >@color/clarity_accent</item>
+        <item name="colorPrimaryVariant"     >@color/clarity_accent_light</item>
+        <item name="colorSurface"            >@color/clarity_surface</item>
+        <item name="android:colorBackground" >@color/clarity_background</item>
+
+        <item name="tetraBackground"         >@color/clarity_background</item>
+        <item name="tetraSurface"            >@color/clarity_surface</item>
+        <item name="tetraSurfaceHigh"        >@color/clarity_surface_high</item>
+        <item name="tetraAccent"             >@color/clarity_accent</item>
+        <item name="tetraAccentLight"        >@color/clarity_accent_light</item>
+        <item name="tetraTextPrimary"        >@color/clarity_text_primary</item>
+        <item name="tetraTextSecondary"      >@color/clarity_text_secondary</item>
+        <item name="tetraTextOnAccent"       >@color/clarity_text_on_accent</item>
+        <item name="tetraBubbleAi"           >@color/clarity_bubble_ai</item>
+        <item name="tetraBubbleAiBorder"     >@color/clarity_bubble_ai_border</item>
+        <item name="tetraBubbleUser"         >@color/clarity_bubble_user</item>
+        <item name="tetraBubbleUserText"     >@color/clarity_bubble_user_text</item>
+        <item name="tetraInputBackground"    >@color/clarity_input_bg</item>
+        <item name="tetraTimestamp"          >@color/clarity_timestamp</item>
+        <item name="tetraDivider"            >@color/clarity_divider</item>
+        <item name="tetraBtnPrimary"         >@color/clarity_accent</item>
+        <item name="tetraBtnPrimaryText"     >@color/clarity_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder" >@color/clarity_accent</item>
     </style>
 
 </resources>

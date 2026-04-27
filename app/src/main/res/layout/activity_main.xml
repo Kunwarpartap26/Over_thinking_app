@@ -1,127 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#0D0D0D">
+    android:background="?attr/tetraBackground">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- ══════════════════════════════════════ -->
+    <!--  TOP BAR                               -->
+    <!-- ══════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#0D0D0D"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+        android:orientation="vertical"
+        android:background="?attr/tetraBackground"
+        android:elevation="4dp">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <!-- TETRA logo text -->
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TETRA"
-                android:textSize="24sp"
-                android:textColor="#5C6BC0"
-                android:textStyle="bold"/>
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:textColor="?attr/tetraAccent"/>
+
+            <!-- SOS button — always red, never themed -->
             <Button
                 android:id="@+id/sos_button"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="36dp"
                 android:text="🆘 SOS"
-                android:backgroundTint="#B71C1C"
-                android:textColor="#FFFFFF"
+                android:textSize="13sp"
                 android:textStyle="bold"
-                android:layout_marginEnd="6dp"/>
+                android:textColor="#FFFFFF"
+                android:backgroundTint="@color/tetra_sos_red"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:layout_marginEnd="8dp"
+                app:cornerRadius="18dp"/>
+
+            <!-- END / Save button -->
             <Button
                 android:id="@+id/save_button"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
-                android:text="💾 End"
-                android:backgroundTint="#1B5E20"
-                android:textColor="#FFFFFF"/>
+                android:layout_height="36dp"
+                android:text="💾 END"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="?attr/tetraTextOnAccent"
+                android:backgroundTint="?attr/tetraAccent"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:layout_marginEnd="4dp"
+                app:cornerRadius="18dp"/>
+
+            <!-- 3-dot menu -->
+            <ImageButton
+                android:id="@+id/menu_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_more"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="?attr/tetraTextSecondary"
+                android:contentDescription="Menu"/>
+
         </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
 
-    <!-- Loading indicator -->
-    <ProgressBar
-        android:id="@+id/loading_bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:indeterminate="true"
-        android:progressTint="#5C6BC0"
-        android:visibility="gone"/>
+        <!-- Loading bar -->
+        <ProgressBar
+            android:id="@+id/loading_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:indeterminate="true"
+            android:progressTint="?attr/tetraAccent"
+            android:indeterminateTint="?attr/tetraAccent"
+            android:visibility="gone"/>
 
-    <TextView
-        android:id="@+id/loading_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:textColor="#5C6BC0"
-        android:textSize="12sp"
-        android:gravity="center"
-        android:padding="4dp"
-        android:visibility="gone"/>
-
-    <View android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#1E1E1E"/>
-
-    <ScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="12dp">
+        <!-- Loading text -->
         <TextView
-            android:id="@+id/session_log"
+            android:id="@+id/loading_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#CCCCCC"
-            android:textSize="14sp"
-            android:lineSpacingExtra="4dp"/>
-    </ScrollView>
+            android:text="AI brain load ho raha hai..."
+            android:textColor="?attr/tetraAccent"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingBottom="4dp"
+            android:visibility="gone"/>
 
-    <View android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#1E1E1E"/>
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/tetraDivider"/>
 
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  CHAT AREA                             -->
+    <!-- ══════════════════════════════════════ -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="80dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/chat_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <!-- session_log kept for backward compatibility with MainActivity.java -->
+            <!-- New chat bubbles will be added programmatically above this -->
+            <TextView
+                android:id="@+id/session_log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/tetraTextPrimary"
+                android:textSize="15sp"
+                android:lineSpacingExtra="6dp"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  BOTTOM INPUT BAR                      -->
+    <!-- ══════════════════════════════════════ -->
     <LinearLayout
+        android:id="@+id/input_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:gravity="center_vertical">
-        <EditText
-            android:id="@+id/input_box"
-            android:layout_width="0dp"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="?attr/tetraBackground"
+        android:elevation="8dp">
+
+        <!-- Top divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/tetraDivider"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Type karo ya mic use karo..."
-            android:textColor="#FFFFFF"
-            android:textColorHint="#777777"
-            android:background="#1E1E1E"
-            android:padding="12dp"
-            android:textSize="14sp"
-            android:imeOptions="actionSend"
-            android:inputType="textMultiLine"
-            android:maxLines="3"/>
-        <Button
-            android:id="@+id/send_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="➤"
-            android:backgroundTint="#5C6BC0"
-            android:textColor="#FFFFFF"
-            android:layout_marginStart="6dp"/>
-        <Button
-            android:id="@+id/mic_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="🎤"
-            android:backgroundTint="#37474F"
-            android:textColor="#FFFFFF"
-            android:layout_marginStart="6dp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <!-- Mic button — push to talk -->
+            <Button
+                android:id="@+id/mic_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="🎤"
+                android:textSize="20sp"
+                android:backgroundTint="?attr/tetraSurfaceHigh"
+                android:layout_marginEnd="8dp"
+                app:cornerRadius="24dp"/>
+
+            <!-- Text input -->
+            <EditText
+                android:id="@+id/input_box"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Type karo ya mic use karo..."
+                android:textColor="?attr/tetraTextPrimary"
+                android:textColorHint="?attr/tetraTextSecondary"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textSize="15sp"
+                android:imeOptions="actionSend"
+                android:inputType="textMultiLine"
+                android:maxLines="4"
+                android:minHeight="48dp"/>
+
+            <!-- Send button -->
+            <Button
+                android:id="@+id/send_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="➤"
+                android:textSize="18sp"
+                android:textColor="?attr/tetraTextOnAccent"
+                android:backgroundTint="?attr/tetraAccent"
+                android:layout_marginStart="8dp"
+                app:cornerRadius="24dp"/>
+
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

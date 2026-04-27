@@ -1,57 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/src/main/res"><file path="/workspaces/Over_thinking_app/app/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">TETRA</string></file><file name="circle_breathing" path="/workspaces/Over_thinking_app/app/src/main/res/drawable/circle_breathing.xml" qualifiers="" type="drawable"/><file name="icon" path="/workspaces/Over_thinking_app/app/src/main/res/drawable-mdpi/icon.png" qualifiers="mdpi-v4" type="drawable"/><file name="activity_breathing" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_breathing.xml" qualifiers="" type="layout"/><file name="activity_download" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_download.xml" qualifiers="" type="layout"/><file name="activity_main" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_main.xml" qualifiers="" type="layout"/><file name="activity_mood" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_mood.xml" qualifiers="" type="layout"/><file name="activity_pin" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_pin.xml" qualifiers="" type="layout"/><file name="activity_language_select" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_language_select.xml" qualifiers="" type="layout"/><file name="activity_settings" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_settings.xml" qualifiers="" type="layout"/><file name="activity_post_mood" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_post_mood.xml" qualifiers="" type="layout"/><file name="activity_weekly_report" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_weekly_report.xml" qualifiers="" type="layout"/><file name="icon" path="/workspaces/Over_thinking_app/app/src/main/res/drawable-hdpi/icon.png" qualifiers="hdpi-v4" type="drawable"/><file name="icon" path="/workspaces/Over_thinking_app/app/src/main/res/drawable-ldpi/icon.png" qualifiers="ldpi-v4" type="drawable"/><file name="file_paths" path="/workspaces/Over_thinking_app/app/src/main/res/xml/file_paths.xml" qualifiers="" type="xml"/><file name="data_extraction_rules" path="/workspaces/Over_thinking_app/app/src/main/res/xml/data_extraction_rules.xml" qualifiers="" type="xml"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-hdpi/ic_launcher.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-mdpi/ic_launcher.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xhdpi/ic_launcher.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file path="/workspaces/Over_thinking_app/app/src/main/res/values/colors.xml" qualifiers=""><color name="vault_bg">#0D0D0D</color><color name="vault_surface">#1E1E1E</color><color name="vault_accent">#5C6BC0</color><color name="vault_accent_light">#7986CB</color><color name="vault_text_primary">#EEEEEE</color><color name="vault_text_secondary">#9E9E9E</color><color name="vault_bubble_ai">#1A1A2E</color><color name="vault_bubble_user">#2C2C2C</color><color name="vault_input_bg">#252525</color><color name="vault_divider">#2A2A2A</color><color name="midnight_bg">#121212</color><color name="midnight_surface">#1C1C1C</color><color name="midnight_accent">#D4AF37</color><color name="midnight_accent_light">#E6C84D</color><color name="midnight_text_primary">#F5F0E8</color><color name="midnight_text_secondary">#A0998A</color><color name="midnight_bubble_ai">#1A1A14</color><color name="midnight_bubble_user">#272720</color><color name="midnight_input_bg">#222218</color><color name="midnight_divider">#2C2C24</color><color name="monsoon_bg">#F4F6F8</color><color name="monsoon_surface">#FFFFFF</color><color name="monsoon_accent">#2C5F2D</color><color name="monsoon_accent_light">#388E3C</color><color name="monsoon_text_primary">#1A2E1A</color><color name="monsoon_text_secondary">#607060</color><color name="monsoon_bubble_ai">#E8F5E9</color><color name="monsoon_bubble_user">#C8E6C9</color><color name="monsoon_input_bg">#ECEFF1</color><color name="monsoon_divider">#D7E0D8</color><color name="terra_bg">#FAF7F2</color><color name="terra_surface">#FFFFFF</color><color name="terra_accent">#B35A3D</color><color name="terra_accent_light">#C96744</color><color name="terra_text_primary">#2E1A12</color><color name="terra_text_secondary">#7A5A50</color><color name="terra_bubble_ai">#FBE9E7</color><color name="terra_bubble_user">#FFCCBC</color><color name="terra_input_bg">#F5F0EA</color><color name="terra_divider">#E8DDD5</color><color name="clarity_bg">#F8F9FA</color><color name="clarity_surface">#FFFFFF</color><color name="clarity_accent">#1275E2</color><color name="clarity_accent_light">#2196F3</color><color name="clarity_text_primary">#0D1B2A</color><color name="clarity_text_secondary">#607080</color><color name="clarity_bubble_ai">#E3F2FD</color><color name="clarity_bubble_user">#BBDEFB</color><color name="clarity_input_bg">#EEF2F7</color><color name="clarity_divider">#D0DCE8</color><color name="sos_red">#B71C1C</color><color name="sos_red_light">#D32F2F</color><color name="success_green">#1B5E20</color><color name="white">#FFFFFF</color><color name="black">#000000</color><color name="transparent">#00000000</color></file><file path="/workspaces/Over_thinking_app/app/src/main/res/values/dimens.xml" qualifiers=""><dimen name="radius_large">24dp</dimen><dimen name="radius_medium">16dp</dimen><dimen name="radius_small">8dp</dimen><dimen name="radius_bubble_outer">16dp</dimen><dimen name="radius_bubble_inner">4dp</dimen><dimen name="spacing_std">16dp</dimen><dimen name="spacing_tight">8dp</dimen><dimen name="spacing_xtra">24dp</dimen><dimen name="elevation_low">2dp</dimen><dimen name="elevation_mid">4dp</dimen><dimen name="btn_height">52dp</dimen><dimen name="input_height">52dp</dimen><dimen name="icon_size">24dp</dimen><dimen name="swatch_size">56dp</dimen><dimen name="text_title">22sp</dimen><dimen name="text_subtitle">15sp</dimen><dimen name="text_body">14sp</dimen><dimen name="text_label">12sp</dimen></file><file path="/workspaces/Over_thinking_app/app/src/main/res/values/themes.xml" qualifiers=""><style name="Theme.Vault" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/vault_bg</item>
+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/src/main/res"><file path="/workspaces/Over_thinking_app/app/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">TETRA</string></file><file name="circle_breathing" path="/workspaces/Over_thinking_app/app/src/main/res/drawable/circle_breathing.xml" qualifiers="" type="drawable"/><file name="icon" path="/workspaces/Over_thinking_app/app/src/main/res/drawable-mdpi/icon.png" qualifiers="mdpi-v4" type="drawable"/><file name="activity_breathing" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_breathing.xml" qualifiers="" type="layout"/><file name="activity_download" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_download.xml" qualifiers="" type="layout"/><file name="activity_main" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_main.xml" qualifiers="" type="layout"/><file name="activity_mood" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_mood.xml" qualifiers="" type="layout"/><file name="activity_pin" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_pin.xml" qualifiers="" type="layout"/><file name="activity_language_select" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_language_select.xml" qualifiers="" type="layout"/><file name="activity_settings" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_settings.xml" qualifiers="" type="layout"/><file name="activity_post_mood" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_post_mood.xml" qualifiers="" type="layout"/><file name="activity_weekly_report" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_weekly_report.xml" qualifiers="" type="layout"/><file name="icon" path="/workspaces/Over_thinking_app/app/src/main/res/drawable-hdpi/icon.png" qualifiers="hdpi-v4" type="drawable"/><file name="icon" path="/workspaces/Over_thinking_app/app/src/main/res/drawable-ldpi/icon.png" qualifiers="ldpi-v4" type="drawable"/><file name="file_paths" path="/workspaces/Over_thinking_app/app/src/main/res/xml/file_paths.xml" qualifiers="" type="xml"/><file name="data_extraction_rules" path="/workspaces/Over_thinking_app/app/src/main/res/xml/data_extraction_rules.xml" qualifiers="" type="xml"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-hdpi/ic_launcher.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-mdpi/ic_launcher.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xhdpi/ic_launcher.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="/workspaces/Over_thinking_app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file path="/workspaces/Over_thinking_app/app/src/main/res/values/colors.xml" qualifiers=""><color name="vault_surface">#1E1E1E</color><color name="vault_accent">#5C6BC0</color><color name="vault_accent_light">#7986CB</color><color name="vault_text_primary">#CCCCCC</color><color name="vault_text_secondary">#888888</color><color name="vault_bubble_ai">#1E1E1E</color><color name="vault_bubble_user">#2C2C2C</color><color name="vault_input_bg">#1A1A1A</color><color name="vault_divider">#222222</color><color name="midnight_surface">#1E1E1E</color><color name="midnight_accent">#D4AF37</color><color name="midnight_accent_light">#E8C84A</color><color name="midnight_text_primary">#E0E0E0</color><color name="midnight_text_secondary">#888888</color><color name="midnight_bubble_ai">#1E1E1E</color><color name="midnight_bubble_user">#3A3A3A</color><color name="midnight_input_bg">#1A1A1A</color><color name="midnight_divider">#2A2A2A</color><color name="monsoon_surface">#FFFFFF</color><color name="monsoon_accent">#2C5F2D</color><color name="monsoon_accent_light">#4CAF50</color><color name="monsoon_text_primary">#1C1E21</color><color name="monsoon_text_secondary">#5F6368</color><color name="monsoon_bubble_ai">#E8F0EA</color><color name="monsoon_bubble_user">#2C5F2D</color><color name="monsoon_input_bg">#FFFFFF</color><color name="monsoon_divider">#E0E0E0</color><color name="clarity_surface">#FFFFFF</color><color name="clarity_accent">#1275E2</color><color name="clarity_accent_light">#4A90E2</color><color name="clarity_text_primary">#202124</color><color name="clarity_text_secondary">#5F6368</color><color name="clarity_bubble_ai">#F1F3F4</color><color name="clarity_bubble_user">#1275E2</color><color name="clarity_input_bg">#FFFFFF</color><color name="clarity_divider">#E0E0E0</color><color name="transparent">#00000000</color><color name="midnight_text_on_accent">#121212</color><color name="terracotta_accent">#B35A3D</color><color name="terracotta_divider">#EDE0DB</color><color name="midnight_bubble_user_text">#D4AF37</color><color name="terracotta_bubble_ai_border">#B35A3D</color><color name="terracotta_surface_high">#F5EBE8</color><color name="vault_background">#0D0D0D</color><color name="midnight_bubble_ai_border">#D4AF37</color><color name="terracotta_bubble_user_text">#FFFFFF</color><color name="monsoon_bubble_user_text">#FFFFFF</color><color name="tetra_sos_red">#B71C1C</color><color name="terracotta_background">#FAF7F2</color><color name="clarity_bubble_ai_border">#1275E2</color><color name="vault_timestamp">#555555</color><color name="midnight_timestamp">#555555</color><color name="monsoon_surface_high">#E8EFF0</color><color name="vault_bubble_user_text">#CCCCCC</color><color name="terracotta_bubble_ai">#F5EBE8</color><color name="tetra_success">#26A69A</color><color name="monsoon_timestamp">#9E9E9E</color><color name="vault_bubble_ai_border">#5C6BC0</color><color name="vault_text_on_accent">#FFFFFF</color><color name="midnight_surface_high">#2C2C2C</color><color name="terracotta_surface">#FFFFFF</color><color name="terracotta_input_bg">#FFFFFF</color><color name="vault_surface_high">#2A2A2A</color><color name="terracotta_bubble_user">#B35A3D</color><color name="clarity_background">#F8F9FA</color><color name="clarity_surface_high">#E8F0FE</color><color name="monsoon_text_on_accent">#FFFFFF</color><color name="terracotta_timestamp">#9E9E9E</color><color name="monsoon_background">#F4F6F8</color><color name="tetra_crisis_indigo">#4B0082</color><color name="clarity_text_on_accent">#FFFFFF</color><color name="terracotta_text_on_accent">#FFFFFF</color><color name="terracotta_text_primary">#2D2826</color><color name="monsoon_bubble_ai_border">#2C5F2D</color><color name="clarity_timestamp">#9E9E9E</color><color name="midnight_background">#121212</color><color name="terracotta_accent_light">#D4785A</color><color name="terracotta_text_secondary">#6B5C57</color><color name="clarity_bubble_user_text">#FFFFFF</color></file><file path="/workspaces/Over_thinking_app/app/src/main/res/values/dimens.xml" qualifiers=""><dimen name="radius_large">24dp</dimen><dimen name="radius_medium">16dp</dimen><dimen name="radius_small">8dp</dimen><dimen name="spacing_std">16dp</dimen><dimen name="spacing_tight">8dp</dimen><dimen name="elevation_low">2dp</dimen><dimen name="input_height">52dp</dimen><dimen name="icon_size">24dp</dimen><dimen name="text_title">18sp</dimen><dimen name="text_body">16sp</dimen><dimen name="text_label">13sp</dimen><dimen name="spacing_xlarge">32dp</dimen><dimen name="text_heading">22sp</dimen><dimen name="text_display">28sp</dimen><dimen name="bubble_corner_tail">4dp</dimen><dimen name="text_caption">11sp</dimen><dimen name="button_height">52dp</dimen><dimen name="bubble_corner_main">16dp</dimen><dimen name="icon_size_large">48dp</dimen><dimen name="bubble_ai_border">4dp</dimen><dimen name="toolbar_height">56dp</dimen><dimen name="spacing_large">24dp</dimen><dimen name="radius_full">999dp</dimen><dimen name="elevation_medium">4dp</dimen></file><file path="/workspaces/Over_thinking_app/app/src/main/res/values/themes.xml" qualifiers=""><style name="Theme.Vault" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/vault_background</item>
         <item name="colorPrimary">@color/vault_accent</item>
         <item name="colorPrimaryVariant">@color/vault_accent_light</item>
-        <item name="colorOnPrimary">@color/white</item>
         <item name="colorSurface">@color/vault_surface</item>
-        <item name="colorOnSurface">@color/vault_text_primary</item>
-        <item name="android:textColorPrimary">@color/vault_text_primary</item>
-        <item name="android:textColorSecondary">@color/vault_text_secondary</item>
-        <item name="android:statusBarColor">@color/vault_bg</item>
-        <item name="android:navigationBarColor">@color/vault_bg</item>
-    </style><style name="Theme.Midnight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/midnight_bg</item>
+        <item name="android:colorBackground">@color/vault_background</item>
+
+        
+        <item name="tetraBackground">@color/vault_background</item>
+        <item name="tetraSurface">@color/vault_surface</item>
+        <item name="tetraSurfaceHigh">@color/vault_surface_high</item>
+        <item name="tetraAccent">@color/vault_accent</item>
+        <item name="tetraAccentLight">@color/vault_accent_light</item>
+        <item name="tetraTextPrimary">@color/vault_text_primary</item>
+        <item name="tetraTextSecondary">@color/vault_text_secondary</item>
+        <item name="tetraTextOnAccent">@color/vault_text_on_accent</item>
+        <item name="tetraBubbleAi">@color/vault_bubble_ai</item>
+        <item name="tetraBubbleAiBorder">@color/vault_bubble_ai_border</item>
+        <item name="tetraBubbleUser">@color/vault_bubble_user</item>
+        <item name="tetraBubbleUserText">@color/vault_bubble_user_text</item>
+        <item name="tetraInputBackground">@color/vault_input_bg</item>
+        <item name="tetraTimestamp">@color/vault_timestamp</item>
+        <item name="tetraDivider">@color/vault_divider</item>
+        <item name="tetraBtnPrimary">@color/vault_accent</item>
+        <item name="tetraBtnPrimaryText">@color/vault_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder">@color/vault_accent</item>
+    </style><style name="Theme.Midnight" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/midnight_background</item>
         <item name="colorPrimary">@color/midnight_accent</item>
         <item name="colorPrimaryVariant">@color/midnight_accent_light</item>
-        <item name="colorOnPrimary">@color/black</item>
         <item name="colorSurface">@color/midnight_surface</item>
-        <item name="colorOnSurface">@color/midnight_text_primary</item>
-        <item name="android:textColorPrimary">@color/midnight_text_primary</item>
-        <item name="android:textColorSecondary">@color/midnight_text_secondary</item>
-        <item name="android:statusBarColor">@color/midnight_bg</item>
-        <item name="android:navigationBarColor">@color/midnight_bg</item>
-    </style><style name="Theme.Monsoon" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@color/monsoon_bg</item>
+        <item name="android:colorBackground">@color/midnight_background</item>
+
+        <item name="tetraBackground">@color/midnight_background</item>
+        <item name="tetraSurface">@color/midnight_surface</item>
+        <item name="tetraSurfaceHigh">@color/midnight_surface_high</item>
+        <item name="tetraAccent">@color/midnight_accent</item>
+        <item name="tetraAccentLight">@color/midnight_accent_light</item>
+        <item name="tetraTextPrimary">@color/midnight_text_primary</item>
+        <item name="tetraTextSecondary">@color/midnight_text_secondary</item>
+        <item name="tetraTextOnAccent">@color/midnight_text_on_accent</item>
+        <item name="tetraBubbleAi">@color/midnight_bubble_ai</item>
+        <item name="tetraBubbleAiBorder">@color/midnight_bubble_ai_border</item>
+        <item name="tetraBubbleUser">@color/midnight_bubble_user</item>
+        <item name="tetraBubbleUserText">@color/midnight_bubble_user_text</item>
+        <item name="tetraInputBackground">@color/midnight_input_bg</item>
+        <item name="tetraTimestamp">@color/midnight_timestamp</item>
+        <item name="tetraDivider">@color/midnight_divider</item>
+        <item name="tetraBtnPrimary">@color/midnight_accent</item>
+        <item name="tetraBtnPrimaryText">@color/midnight_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder">@color/midnight_accent</item>
+    </style><style name="Theme.Monsoon" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/monsoon_background</item>
         <item name="colorPrimary">@color/monsoon_accent</item>
         <item name="colorPrimaryVariant">@color/monsoon_accent_light</item>
-        <item name="colorOnPrimary">@color/white</item>
         <item name="colorSurface">@color/monsoon_surface</item>
-        <item name="colorOnSurface">@color/monsoon_text_primary</item>
-        <item name="android:textColorPrimary">@color/monsoon_text_primary</item>
-        <item name="android:textColorSecondary">@color/monsoon_text_secondary</item>
-        <item name="android:statusBarColor">@color/monsoon_accent</item>
-        <item name="android:navigationBarColor">@color/monsoon_bg</item>
-    </style><style name="Theme.Terracotta" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@color/terra_bg</item>
-        <item name="colorPrimary">@color/terra_accent</item>
-        <item name="colorPrimaryVariant">@color/terra_accent_light</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSurface">@color/terra_surface</item>
-        <item name="colorOnSurface">@color/terra_text_primary</item>
-        <item name="android:textColorPrimary">@color/terra_text_primary</item>
-        <item name="android:textColorSecondary">@color/terra_text_secondary</item>
-        <item name="android:statusBarColor">@color/terra_accent</item>
-        <item name="android:navigationBarColor">@color/terra_bg</item>
-    </style><style name="Theme.Clarity" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@color/clarity_bg</item>
+        <item name="android:colorBackground">@color/monsoon_background</item>
+
+        <item name="tetraBackground">@color/monsoon_background</item>
+        <item name="tetraSurface">@color/monsoon_surface</item>
+        <item name="tetraSurfaceHigh">@color/monsoon_surface_high</item>
+        <item name="tetraAccent">@color/monsoon_accent</item>
+        <item name="tetraAccentLight">@color/monsoon_accent_light</item>
+        <item name="tetraTextPrimary">@color/monsoon_text_primary</item>
+        <item name="tetraTextSecondary">@color/monsoon_text_secondary</item>
+        <item name="tetraTextOnAccent">@color/monsoon_text_on_accent</item>
+        <item name="tetraBubbleAi">@color/monsoon_bubble_ai</item>
+        <item name="tetraBubbleAiBorder">@color/monsoon_bubble_ai_border</item>
+        <item name="tetraBubbleUser">@color/monsoon_bubble_user</item>
+        <item name="tetraBubbleUserText">@color/monsoon_bubble_user_text</item>
+        <item name="tetraInputBackground">@color/monsoon_input_bg</item>
+        <item name="tetraTimestamp">@color/monsoon_timestamp</item>
+        <item name="tetraDivider">@color/monsoon_divider</item>
+        <item name="tetraBtnPrimary">@color/monsoon_accent</item>
+        <item name="tetraBtnPrimaryText">@color/monsoon_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder">@color/monsoon_accent</item>
+    </style><style name="Theme.Terracotta" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/terracotta_background</item>
+        <item name="colorPrimary">@color/terracotta_accent</item>
+        <item name="colorPrimaryVariant">@color/terracotta_accent_light</item>
+        <item name="colorSurface">@color/terracotta_surface</item>
+        <item name="android:colorBackground">@color/terracotta_background</item>
+
+        <item name="tetraBackground">@color/terracotta_background</item>
+        <item name="tetraSurface">@color/terracotta_surface</item>
+        <item name="tetraSurfaceHigh">@color/terracotta_surface_high</item>
+        <item name="tetraAccent">@color/terracotta_accent</item>
+        <item name="tetraAccentLight">@color/terracotta_accent_light</item>
+        <item name="tetraTextPrimary">@color/terracotta_text_primary</item>
+        <item name="tetraTextSecondary">@color/terracotta_text_secondary</item>
+        <item name="tetraTextOnAccent">@color/terracotta_text_on_accent</item>
+        <item name="tetraBubbleAi">@color/terracotta_bubble_ai</item>
+        <item name="tetraBubbleAiBorder">@color/terracotta_bubble_ai_border</item>
+        <item name="tetraBubbleUser">@color/terracotta_bubble_user</item>
+        <item name="tetraBubbleUserText">@color/terracotta_bubble_user_text</item>
+        <item name="tetraInputBackground">@color/terracotta_input_bg</item>
+        <item name="tetraTimestamp">@color/terracotta_timestamp</item>
+        <item name="tetraDivider">@color/terracotta_divider</item>
+        <item name="tetraBtnPrimary">@color/terracotta_accent</item>
+        <item name="tetraBtnPrimaryText">@color/terracotta_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder">@color/terracotta_accent</item>
+    </style><style name="Theme.Clarity" parent="Theme.Tetra.Base">
+        <item name="android:windowBackground">@color/clarity_background</item>
         <item name="colorPrimary">@color/clarity_accent</item>
         <item name="colorPrimaryVariant">@color/clarity_accent_light</item>
-        <item name="colorOnPrimary">@color/white</item>
         <item name="colorSurface">@color/clarity_surface</item>
-        <item name="colorOnSurface">@color/clarity_text_primary</item>
-        <item name="android:textColorPrimary">@color/clarity_text_primary</item>
-        <item name="android:textColorSecondary">@color/clarity_text_secondary</item>
-        <item name="android:statusBarColor">@color/clarity_accent</item>
-        <item name="android:navigationBarColor">@color/clarity_bg</item>
-    </style></file><file name="activity_theme_select" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_theme_select.xml" qualifiers="" type="layout"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
+        <item name="android:colorBackground">@color/clarity_background</item>
+
+        <item name="tetraBackground">@color/clarity_background</item>
+        <item name="tetraSurface">@color/clarity_surface</item>
+        <item name="tetraSurfaceHigh">@color/clarity_surface_high</item>
+        <item name="tetraAccent">@color/clarity_accent</item>
+        <item name="tetraAccentLight">@color/clarity_accent_light</item>
+        <item name="tetraTextPrimary">@color/clarity_text_primary</item>
+        <item name="tetraTextSecondary">@color/clarity_text_secondary</item>
+        <item name="tetraTextOnAccent">@color/clarity_text_on_accent</item>
+        <item name="tetraBubbleAi">@color/clarity_bubble_ai</item>
+        <item name="tetraBubbleAiBorder">@color/clarity_bubble_ai_border</item>
+        <item name="tetraBubbleUser">@color/clarity_bubble_user</item>
+        <item name="tetraBubbleUserText">@color/clarity_bubble_user_text</item>
+        <item name="tetraInputBackground">@color/clarity_input_bg</item>
+        <item name="tetraTimestamp">@color/clarity_timestamp</item>
+        <item name="tetraDivider">@color/clarity_divider</item>
+        <item name="tetraBtnPrimary">@color/clarity_accent</item>
+        <item name="tetraBtnPrimaryText">@color/clarity_text_on_accent</item>
+        <item name="tetraBtnSecondaryBorder">@color/clarity_accent</item>
+    </style><style name="Theme.Tetra.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="tetraSosColor">@color/tetra_sos_red</item>
+        <item name="tetraSuccessColor">@color/tetra_success</item>
+    </style></file><file name="activity_theme_select" path="/workspaces/Over_thinking_app/app/src/main/res/layout/activity_theme_select.xml" qualifiers="" type="layout"/><file path="/workspaces/Over_thinking_app/app/src/main/res/values/attrs.xml" qualifiers=""><attr format="color" name="tetraBackground"/><attr format="color" name="tetraSurface"/><attr format="color" name="tetraSurfaceHigh"/><attr format="color" name="tetraAccent"/><attr format="color" name="tetraAccentLight"/><attr format="color" name="tetraTextPrimary"/><attr format="color" name="tetraTextSecondary"/><attr format="color" name="tetraTextOnAccent"/><attr format="color" name="tetraBubbleAi"/><attr format="color" name="tetraBubbleAiBorder"/><attr format="color" name="tetraBubbleUser"/><attr format="color" name="tetraBubbleUserText"/><attr format="color" name="tetraInputBackground"/><attr format="color" name="tetraTimestamp"/><attr format="color" name="tetraDivider"/><attr format="color" name="tetraBtnPrimary"/><attr format="color" name="tetraBtnPrimaryText"/><attr format="color" name="tetraBtnSecondaryBorder"/><attr format="color" name="tetraSosColor"/><attr format="color" name="tetraSuccessColor"/></file><file name="bg_bubble_ai" path="/workspaces/Over_thinking_app/app/src/main/res/drawable/bg_bubble_ai.xml" qualifiers="" type="drawable"/><file name="bg_bubble_user" path="/workspaces/Over_thinking_app/app/src/main/res/drawable/bg_bubble_user.xml" qualifiers="" type="drawable"/><file name="bg_input_field" path="/workspaces/Over_thinking_app/app/src/main/res/drawable/bg_input_field.xml" qualifiers="" type="drawable"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/workspaces/Over_thinking_app/app/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>

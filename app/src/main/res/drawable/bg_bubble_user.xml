@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="?attr/tetraBubbleUser"/>
+    <corners
+        android:topLeftRadius="@dimen/bubble_corner_main"
+        android:topRightRadius="@dimen/bubble_corner_tail"
+        android:bottomLeftRadius="@dimen/bubble_corner_main"
+        android:bottomRightRadius="@dimen/bubble_corner_tail"/>
+</shape>

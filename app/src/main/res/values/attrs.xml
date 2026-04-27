@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background layers -->
+    <attr name="tetraBackground"          format="color"/>
+    <attr name="tetraSurface"             format="color"/>
+    <attr name="tetraSurfaceHigh"         format="color"/>
+
+    <!-- Accent / brand -->
+    <attr name="tetraAccent"              format="color"/>
+    <attr name="tetraAccentLight"         format="color"/>
+
+    <!-- Text -->
+    <attr name="tetraTextPrimary"         format="color"/>
+    <attr name="tetraTextSecondary"       format="color"/>
+    <attr name="tetraTextOnAccent"        format="color"/>
+
+    <!-- Chat bubbles -->
+    <attr name="tetraBubbleAi"            format="color"/>
+    <attr name="tetraBubbleAiBorder"      format="color"/>
+    <attr name="tetraBubbleUser"          format="color"/>
+    <attr name="tetraBubbleUserText"      format="color"/>
+
+    <!-- UI elements -->
+    <attr name="tetraInputBackground"     format="color"/>
+    <attr name="tetraTimestamp"           format="color"/>
+    <attr name="tetraDivider"             format="color"/>
+
+    <!-- Buttons -->
+    <attr name="tetraBtnPrimary"          format="color"/>
+    <attr name="tetraBtnPrimaryText"      format="color"/>
+    <attr name="tetraBtnSecondaryBorder"  format="color"/>
+
+    <!-- Fixed safety colors — never change with theme -->
+    <attr name="tetraSosColor"            format="color"/>
+    <attr name="tetraSuccessColor"        format="color"/>
+</resources>
